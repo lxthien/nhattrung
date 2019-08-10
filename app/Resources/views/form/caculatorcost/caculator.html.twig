@@ -5,111 +5,118 @@
 {% block keyword %}{{ post.getPageKeyword() }}{% endblock %}
 
 {% block body %}
-    <div class="container wrapper-container costs">
-        {# breadcrumbs #}
-        {{ include('news/components/breadcrumbs.html.twig') }}
+    <div class="wrapper-container-item-detail">
+        <div class="container wrapper-container costs">
+            <div class="row">
+                {# breadcrumbs #}
+                {{ include('news/components/breadcrumbs.html.twig') }}
 
-        <div class="row">
-            <div class="col-12 col-md-12 col-lg-8">
-                <div class="news-container">
-                    {{ post.getContents()|raw }}
-                </div>
-                
-                {% for message in app.flashes('error') %}
-                    <div class="alert alert-danger" role="alert">
-                        {{ message }}
+                <div class="col-12 col-md-12 col-lg-8 news">
+                    <h1 class="entry-title block-title">
+                        {{ post.getTitle() }}
+                    </h1>
+                    <div class="news-container">
+                        {{ post.getContents()|raw }}
                     </div>
-                {% endfor %}
-                
-                {{ form_start(form) }}
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            {{ form_label(form.type) }}
-                            {{ form_errors(form.type) }}
-                            {{ form_widget(form.type) }}
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            {{ form_label(form.method) }}
-                            {{ form_errors(form.method) }}
-                            {{ form_widget(form.method) }}
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            {{ form_label(form.wide) }}
-                            {{ form_errors(form.wide) }}
-                            {{ form_widget(form.wide) }}
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            {{ form_label(form.long) }}
-                            {{ form_errors(form.long) }}
-                            {{ form_widget(form.long) }}
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            {{ form_label(form.floor) }}
-                            {{ form_errors(form.floor) }}
-                            {{ form_widget(form.floor) }}
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            {{ form_label(form.mong) }}
-                            {{ form_errors(form.mong) }}
-                            {{ form_widget(form.mong) }}
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            {{ form_label(form.mai) }}
-                            {{ form_errors(form.mai) }}
-                            {{ form_widget(form.mai) }}
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            {{ form_widget(form.reset) }}
-                            {{ form_widget(form.caculator) }}
-                        </div>
-                    </div>
-                </div>
-                {{ form_end(form) }}
 
-                {% if costs is not null %}
-                <div class="row costs-result">
-                    <div class="col-md-12">
-                        <h1 class="text-uppercase">Kết quả tính diện tích và chi phí</h1>
-                        <p><span>Diện tích tầng trệt:</span> {{ costs.area }} m<sup>2</sup></p>
-                        {% if costs.floor > 1 %}
-                            {% for i in range(1, costs.floor - 1) %}
-                            <p><span>Diện tích tầng {{ i }}:</span> {{ costs.area }} m<sup>2</sup></p>
-                            {% endfor %}
-                        {% endif %}
-                        <p><span>{{ costs.titleMong }}:</span> {{ costs.areaMong }} m<sup>2</sup></p>
-                        <p><span>{{ costs.titleMai }}:</span> {{ costs.areaMai }} m<sup>2</sup></p>
-                        <p><span>Tổng diện tích:</span> {{ costs.areaTotal }} m<sup>2</sup></p>
-                        <p><span>{{ costs.title }}:</span> {{ costs.cost|number_format(0, '.', ',') }} <sup>đ</sup></p>
-                        <p><span>Chi phí dự kiến:</span> {{ costs.costTotal|number_format(0, '.', ',') }} <sup>đ</sup></p>
-                        <p>Liên hệ hotline: <a href="tel:0982969379">0982.96.93.79</a> A Minh để nhận tư vấn, <a href="{{ path('news_show', {'slug': 'bao-gia-xay-nha-tron-goi' }) }}">báo giá xây nhà</a> miễn phí</p>
-                        <p><strong>Email:</strong> <a href="mailto:xaydungkimanh@gmail.com">xaydungkimanh@gmail.com</a></p>
-                        <p><i><strong>Lưu ý: {{ costs.note|raw }}</strong></i></p>
+                    <hr>
+                    
+                    {% for message in app.flashes('error') %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                    
+                    {{ form_start(form) }}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form_label(form.type) }}
+                                {{ form_errors(form.type) }}
+                                {{ form_widget(form.type) }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form_label(form.method) }}
+                                {{ form_errors(form.method) }}
+                                {{ form_widget(form.method) }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form_label(form.wide) }}
+                                {{ form_errors(form.wide) }}
+                                {{ form_widget(form.wide) }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form_label(form.long) }}
+                                {{ form_errors(form.long) }}
+                                {{ form_widget(form.long) }}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_label(form.floor) }}
+                                {{ form_errors(form.floor) }}
+                                {{ form_widget(form.floor) }}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_label(form.mong) }}
+                                {{ form_errors(form.mong) }}
+                                {{ form_widget(form.mong) }}
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form_label(form.mai) }}
+                                {{ form_errors(form.mai) }}
+                                {{ form_widget(form.mai) }}
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {{ form_widget(form.reset) }}
+                                {{ form_widget(form.caculator) }}
+                            </div>
+                        </div>
                     </div>
+                    {{ form_end(form) }}
+
+                    {% if costs is not null %}
+                    <div class="row costs-result">
+                        <div class="col-md-12">
+                            <h1 class="text-uppercase">Kết quả tính diện tích và chi phí</h1>
+                            <p><span>Diện tích tầng trệt:</span> {{ costs.area }} m<sup>2</sup></p>
+                            {% if costs.floor > 1 %}
+                                {% for i in range(1, costs.floor - 1) %}
+                                <p><span>Diện tích tầng {{ i }}:</span> {{ costs.area }} m<sup>2</sup></p>
+                                {% endfor %}
+                            {% endif %}
+                            <p><span>{{ costs.titleMong }}:</span> {{ costs.areaMong }} m<sup>2</sup></p>
+                            <p><span>{{ costs.titleMai }}:</span> {{ costs.areaMai }} m<sup>2</sup></p>
+                            <p><span>Tổng diện tích:</span> {{ costs.areaTotal }} m<sup>2</sup></p>
+                            <p><span>{{ costs.title }}:</span> {{ costs.cost|number_format(0, '.', ',') }} <sup>đ</sup></p>
+                            <p><span>Chi phí dự kiến:</span> {{ costs.costTotal|number_format(0, '.', ',') }} <sup>đ</sup></p>
+                            <p>Liên hệ hotline: <a href="tel:0936404139">0936.40.41.39</a> A Tuần để nhận tư vấn, <a href="{{ path('news_show', {'slug': 'bang-gia-xay-nha-tron-goi-moi-nhat' }) }}">báo giá xây nhà</a> miễn phí</p>
+                            <p><strong>Email:</strong> <a href="mailto:xaydungnhatthu@gmail.com">xaydungnhatthu@gmail.com</a></p>
+                            <p><i><strong>Lưu ý: {{ costs.note|raw }}</strong></i></p>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
-                {% endif %}
+
+                {# Side bar #}
+                {{ include('layout/sidebar.html.twig') }}
             </div>
 
-            {# Side bar #}
-            {{ include('layout/sidebar.html.twig') }}
+            {{ render(controller(
+                'AppBundle:News:listNewsByCategory', { 'categoryId': 2 }
+            )) }}
         </div>
-
-        {{ render(controller(
-            'AppBundle:News:listNewsByCategory', { 'categoryId': 2 }
-        )) }}
     </div>
 {% endblock %}

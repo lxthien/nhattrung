@@ -86,11 +86,11 @@ dmishh_settings:
             type: Symfony\Component\Form\Extension\Core\Type\TextType
             options:
                 required: false
-        linkToGooglePlus:
+        linkToWordpress:
             type: Symfony\Component\Form\Extension\Core\Type\TextType
             options:
                 required: false
-        linkToTwitter:
+        linkToBlog:
             type: Symfony\Component\Form\Extension\Core\Type\TextType
             options:
                 required: false

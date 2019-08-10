@@ -9,8 +9,10 @@
     <meta property="og:title" content="{{ post.getPageTitle() is not null ? post.getPageTitle() : post.getTitle() }}" />
     <meta property="og:description" content="{{ post.getPageDescription() is not null ? post.getPageDescription() : post.getDescription() }}" />
     <meta property="og:image" content="{{ vich_uploader_asset(post, 'imageFile') ? app.request.getUriForPath(vich_uploader_asset(post, 'imageFile')) : absolute_url(asset('assets/images/no-image.png')) }}" />
+    {% if imageSize is not null %}
     <meta property="og:image:width" content="{{ imageSize[0] }}" />
     <meta property="og:image:height" content="{{ imageSize[1] }}" />
+    {% endif %}
 {% endblock %}
 
 {% block twitterImage %}
@@ -18,62 +20,63 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container wrapper-container page-detail">
-        <div class="row">
-            {# Side bar #}
-            {{ include('layout/sidebar.html.twig') }}
-
-            <div class="col-12 col-md-12 col-lg-9 page-detail-container">
+    <div class="wrapper-container-item-detail">
+        <div class="container wrapper-container page-detail">
+            <div class="row">
                 {# breadcrumbs #}
                 {{ include('news/components/breadcrumbs.html.twig') }}
 
-                <article id="post-{{ post.getId() }}" class="news hentry" itemscope itemtype="http://schema.org/Article">
-                    {# Begin google snippet #}
-                    <meta itemscope itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage" itemid="{{ absolute_url(path('news_show', {'slug': post.getUrl() })) }}"/>
-                    <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-                        <meta itemprop="name" content="{{ get_setting('siteName') }}"/>
-                    </div>
-                    <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-                        <meta itemprop="url" content="{{ (vich_uploader_asset(post, 'imageFile') ? app.request.getUriForPath(vich_uploader_asset(post, 'imageFile')) : absolute_url(asset('assets/images/no-image.png'))) | imagine_filter('news_382_285') }}">
-                        <meta itemprop="width" content="382">
-                        <meta itemprop="height" content="285">
-                    </div>
-                    <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-                        <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-                            <meta itemprop="url" content="{{ absolute_url(asset('assets/images/logo.png')) }}">
-                            <meta itemprop="width" content="376">
-                            <meta itemprop="height" content="218">
+                <div class="col-12 col-md-12 col-lg-8 page-detail-container">
+                    <article id="post-{{ post.getId() }}" class="news hentry" itemscope itemtype="http://schema.org/Article">
+                        {# Begin google snippet #}
+                        <meta itemscope itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage" itemid="{{ absolute_url(path('news_show', {'slug': post.getUrl() })) }}"/>
+                        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+                            <meta itemprop="name" content="{{ get_setting('siteName') }}"/>
                         </div>
-                        <meta itemprop="name" content="{{ get_setting('siteName') }}">
-                    </div>
-                    <meta itemprop="datePublished" content="{{ post.getCreatedAt()|date("Y-m-d h:m:s") }}"/>
-                    <meta itemprop="dateModified" content="{{ post.getUpdatedAt()|date("Y-m-d h:m:s") }}"/>
-                    {# End google snippet #}
+                        <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                            <meta itemprop="url" content="{{ (vich_uploader_asset(post, 'imageFile') ? app.request.getUriForPath(vich_uploader_asset(post, 'imageFile')) : absolute_url(asset('assets/images/no-image.png'))) | imagine_filter('news_382_285') }}">
+                            <meta itemprop="width" content="382">
+                            <meta itemprop="height" content="285">
+                        </div>
+                        <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+                            <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                                <meta itemprop="url" content="{{ absolute_url(asset('assets/images/logo.png')) }}">
+                                <meta itemprop="width" content="376">
+                                <meta itemprop="height" content="218">
+                            </div>
+                            <meta itemprop="name" content="{{ get_setting('siteName') }}">
+                        </div>
+                        <meta itemprop="datePublished" content="{{ post.getCreatedAt()|date("Y-m-d h:m:s") }}"/>
+                        <meta itemprop="dateModified" content="{{ post.getUpdatedAt()|date("Y-m-d h:m:s") }}"/>
+                        {# End google snippet #}
 
-                    <h1 class="entry-title block-title" itemprop="headline">{{ post.getTitle() }}</h1>
-                    
-                    <div class="news-container" itemprop="articleBody">
-                        {{ post.getContents()|raw }}
-                    </div>
+                        <h1 class="entry-title block-title" itemprop="headline">{{ post.getTitle() }}</h1>
+                        
+                        <div class="news-container" itemprop="articleBody">
+                            {{ post.getContents()|raw }}
+                        </div>
 
-                    {# List tags #}
-                    {{ include('news/components/tags.html.twig') }}
+                        {# List tags #}
+                        {{ include('news/components/tags.html.twig') }}
 
-                    {# Rating and Share #}
-                    <div class="rating-share-container">
-                        {{ include('news/rating/rating.html.twig') }}
-                        {{ include('news/components/share.html.twig') }}
-                    </div>
+                        {# Rating and Share #}
+                        <div class="rating-share-container">
+                            {{ include('news/components/share.html.twig') }}
+                        </div>
 
-                    {# Related news #}
-                    {{ include('news/components/related.html.twig') }}
-                    
-                    {# List comments #}
-                    {{ include('news/comments/list.html.twig') }}
-                    
-                    {# Render form comment #}
-                    {{ include('news/comments/form.html.twig') }}
-                </article>
+                        {# Related news #}
+                        {{ include('news/components/related.html.twig') }}
+                        
+                        {# List comments #}
+                        {{ include('news/comments/list.html.twig') }}
+                        
+                        {# Render form comment #}
+                        {{ include('news/comments/form.html.twig') }}
+                    </article>
+                </div>
+
+                {# Side bar #}
+                {{ include('layout/sidebar.html.twig') }}
             </div>
         </div>
     </div>

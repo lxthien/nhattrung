@@ -1,17 +1,70 @@
 .header {
     padding: 0;
-    /* background-color: #0053a5; */
-    background-color: $white;
-    color: $white;
-    height: 40px;
+    background-color: #004a80;
+    color: $black;
+    height: 35px;
 
-    .col-md-6 {
+    .col-12 {
         &.marquee {
-            height: 40px;
+            height: 35px;
+            padding-left: 12px;
+            position: relative;
+
+            .skew-divider {
+                content: "";
+                background-color: #276fa5;
+                background-image: linear-gradient(141deg, #276fa5 0%, #276fa5 50%, #276fa5 75%);
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 10000px;
+                -webkit-transform: skew(-35deg);
+                -khtml-transform: skew(-35deg);
+                -moz-transform: skew(-35deg);
+                -ms-transform: skew(-35deg);
+                -o-transform: skew(-35deg);
+                transform: skew(-35deg);
+            }
+
+            marquee {
+                font-size: 14px;
+                text-transform: uppercase;
+                font-family: $robotoCondesed;
+                line-height: 35px;
+                font-weight: 600;
+                color: $white;
+                text-shadow: 0.2px 0.2px 0.2px $white;
+    
+                span {
+                    margin-right: 0;
+                    display: contents;
+                    font-size: 14px;
+                    color: $supernova;
+                    text-shadow: 0.2px 0.2px 0.2px $supernova;
+                }
+            }
+        }
+
+        &.text-left {
+            span {
+                i {
+                    color: $white;
+                }
+
+                a {
+                    color: $white;
+                    line-height: 35px;
+        
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
         }
 
         span {
-            line-height: 40px;
+            line-height: 35px;
             font-size: 14px;
             margin-right: 10px;
             display: inline-block;
@@ -21,69 +74,12 @@
                 font-size: 14px;
             }
         }
-
-        a {
-            color: $white;
-            line-height: 40px;
-
-            &:hover {
-                text-decoration: none;
-            }
-        }
-
-        marquee {
-            font-size: 15px;
-            text-transform: uppercase;
-            font-family: $robotoCondesed;
-            background-color: $white;
-            color: #3c3950;
-            margin-right: 7px;
-            line-height: 40px;
-            font-weight: 600;
-
-            span {
-                margin-right: 0;
-                display: contents;
-                font-size: 15px;
-            }
-        }
-    }
-
-    .header-social {
-        position: relative;
-
-        .skew-divider {
-            content: "";
-            background-color: #0053a5;
-            background-image: linear-gradient(141deg, #0053a5 0%, #0080ff 50%, #ffffff 75%);
-            height: 100%;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 10000px;
-            -webkit-transform: skew(-35deg);
-            -khtml-transform: skew(-35deg);
-            -moz-transform: skew(-35deg);
-            -ms-transform: skew(-35deg);
-            -o-transform: skew(-35deg);
-            transform: skew(-35deg);
-        }
-
-        .header-social-wrapper {
-            position: relative;
-            padding-left: 15px;
-
-            a {
-                padding: 0 5px;
-            }
-        }
     }
 }
 
 .banner {
     height: 120px;
     font-family: $robotoCondesed;
-    background: #f1f1f1;
 
     #logo_top {
         padding: 0;
@@ -95,34 +91,15 @@
             a {
                 img {
                     padding: 10px 0;
-                    width: 69%;
+                    width: 66%;
                 }
             }
         }
     }
 
     .info-top {
-        margin-top: 35px;
+        margin-top: 20px;
         overflow: hidden;
-
-        &.hotline-top {
-            margin-top: 42px;
-
-            .wp90 {
-                .info-nd {
-                    background: #fff;
-                    border: 2px solid #FDC502;
-                    padding: 0 15px;
-                    border-radius: 30px;
-
-                    p {
-                        font-size: 20px;
-                        line-height: 20px;
-                        padding: 5px 0;
-                    }
-                }
-            }
-        }
 
         .wp10 {
             width: 9%;
@@ -133,7 +110,7 @@
                 font-size: 40px;
                 color: #3c3950;
                 padding-right: 10px;
-                border-right: 2px solid #FDC502;
+                border-right: 2px solid $primaryColor2;
             }
         }
 
@@ -142,17 +119,14 @@
             float: left;
 
             .info-nd {
+                padding-left: 10px;
+
                 p {
                     margin-bottom: 0;
                     color: #3c3950;
                     font-family: $robotoCondesed;
-                    font-size: 17px;
-                    text-align: center;
+                    font-size: 16px;
                     font-weight: bold;
-
-                    &#header-address {
-                        text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
-                    }
                 }
 
                 .tel {
@@ -161,16 +135,7 @@
                     font-size: 23px;
                     line-height: 27px;
                     color: #3c3950;
-
-                    &#header-company {
-                        text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
-                    }
-
-                    a {
-                        &:hover {
-                            text-decoration: none;
-                        }
-                    }
+                    margin-bottom: 3px;
                 }
             }
         }

@@ -2,36 +2,19 @@
 <div class="wrapper-container header d-none hidden-xs hidden-sm">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-sm-8 col-md-6 marquee">
-                <marquee scrollamount="7">Xây Dựng Kim Anh: <span>Miễn phí 100% chi phí thiết kế</span> khi ký hợp đồng thi công xây nhà phần thô. <span>Miễn phí 100% chi phí thiết kế</span>, bao giấy phép khi xây nhà trọn gói. <span>Giảm từ 80% - 100% chi phí thiết kế</span> khi sửa nhà trọn gói. Hotline: 0974.776.305 (Mr Tuấn)</marquee>
+            <div class="col-12 col-sm-4 col-md-4 text-left">
+                <span>
+                    <i class="fas fa-mobile-alt"></i>
+                    <a href="tel:0936404139">0936.40.41.39</a>
+                </span>
+                <span>
+                    <i class="fa fa-envelope-o"></i>
+                    <a href="mailto:xaydungnhatthu@gmail.com">xaydungnhatthu@gmail.com</a>
+                </span>
             </div>
-            <div class="col-12 col-sm-4 col-md-6 text-right header-social hidden-xs">
+            <div class="col-12 col-sm-4 col-md-8 marquee">
                 <div class="skew-divider"></div>
-                <div class="header-social-wrapper">
-                    <span class="text-left">
-                        <i class="fa fa-phone"></i>
-                        <a href="tel:0974776305">0974.776.305</a>
-                    </span>
-                    <span class="text-left">
-                        <i class="fa fa-envelope-o"></i>
-                        <a href="mailto:xaydungkimanh@gmail.com">xaydungkimanh@gmail.com</a>
-                    </span>
-                    <a target="_blank" href="{{ get_setting('linkToFacebook') }}" title="Xây Dựng Kim Anh trên Facebook">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                    <a target="_blank" href="{{ get_setting('linkToGooglePlus') }}" title="Xây Dựng Kim Anh trên Google plus">
-                        <i class="fa fa-google-plus"></i>
-                    </a>
-                    <a target="_blank" href="{{ get_setting('linkToTwitter') }}" title="Xây Dựng Kim Anh trên Twitter">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                    <a target="_blank" href="{{ get_setting('linkToYoutube') }}" title="Xây Dựng Kim Anh trên Youtube">
-                        <i class="fa fa-youtube"></i>
-                    </a>
-                    <a target="_blank" href="{{ get_setting('linkToLinkedin') }}" title="Xây Dựng Kim Anh trên Linkedin">
-                        <i class="fa fa-linkedin"></i>
-                    </a>
-                </div>
+                <marquee scrollamount="6">{{ get_setting('marqueeHomepage')|raw }}</marquee>
             </div>
         </div>
     </div>
@@ -39,32 +22,43 @@
 <div class="wrapper-container banner d-none hidden-xs hidden-sm">
     <div class="container">
         <div class="row">
-            <div class="col-md-4" id="logo_top">
+            <div class="col-md-3" id="logo_top">
                 <div id="logo">								
                     <a href="{{ path('homepage') }}" title="{{ get_setting('siteName') }}">
                         <img alt="{{ get_setting('siteName') }}" src="{{ asset('assets/images/logo.png') }}">
                     </a>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="info-top">
+                    <div class="wp10">
+                        <span><i class="fas fa-mobile-alt"></i></span>
+                    </div>
                     <div class="wp90">
-                        <div class="info-nd" id="output">
-                            <p class="tel text-uppercase" id="header-company"></p>
-                            <p class="text-uppercase" id="header-address"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="info-top hotline-top">
-                    <div class="wp90 pull-right">
                         <div class="info-nd">
-                            <p class="tel text-uppercase"><i class="fas fa-mobile-alt"></i> <a href="tel:0974776305">0974776305</a></p>
+                            <p class="tel text-uppercase">XÂY DỰNG NHẬT TRUNG</p>
+                            <p>ĐT: 0936 404 139 - Hotline: 0973 400 138</p>
+                            <p>Email: xaydungnhatthu@gmail.com</p>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-5">
+                <div class="info-top">
+                    <div class="wp10">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="wp90">
+                        <div class="info-nd">
+                            <p class="tel text-uppercase">VĂN PHÒNG GIAO DỊCH</p>
+                            <p>CN1: 150 Phạm Văn Bạch, Phường 15, Quận Tân Bình, TP HCM</p>
+                            <p>CN2: 224 Gò Dầu, Phường Tân Qúy, Quận Tân Phú, TP HCM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

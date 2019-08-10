@@ -12,7 +12,9 @@
     button {
         border-width: 0px;
         background-color: $primaryColor;
-        margin-top: 8px;
+        margin-top: 10px;
+        border-radius: 15px;
+        padding: 8px 15px;
 
         &:focus, &:hover {
             background-color: $primaryColor;

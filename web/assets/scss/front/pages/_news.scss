@@ -12,7 +12,7 @@
             margin-bottom: 20px;
 
             .news-item-wrapper {
-                border-bottom: 1px dotted $supernova;
+                border-bottom: 1px solid $primaryColor2;
             }
         }
     }
@@ -52,7 +52,7 @@
             margin-bottom: 0;
 
             @media only screen and (min-width: 979.98px) {
-                max-width: 1170px !important;
+                max-width: 1200px !important;
             }
 
             .bx-viewport {
@@ -76,54 +76,91 @@
                     }
                 }
             }
+
+            .bx-controls {
+                .bx-controls-direction {
+                    .bx-prev {
+                        width: 40px;
+                        height: 120px;
+                        top: 35%;
+                        left: 0;
+                        background: url("../../../images/arrow-left.png") no-repeat;
+                        background-color: rgba(0, 0, 0, 0.3);
+                        background-size: 40px;
+                    }
+
+                    .bx-next {
+                        width: 40px;
+                        height: 120px;
+                        top: 35%;
+                        right: 0;
+                        background: url("../../../images/arrow-right.png") no-repeat;
+                        background-color: rgba(0, 0, 0, 0.3);
+                        background-size: 40px;
+                    }
+                }
+            }
         }
     }
 }
 
 /* Post detail
 ------------------------------------------------------------------------- */
-.page-detail {
-    margin-top: 40px;
+.wrapper-container-item-detail {
+    background: $gray94;
 
-    @media only screen and (max-width: 768px) {
-        margin-top: 20px;
-    }
-}
+    .wrapper-container {
+        background: $white;
 
-.news {
-    h1 {
-        font-size: 32px;
-        line-height: 40px;
-        margin: 10px 0 20px 0;
-    }
-
-    .news-container {
-        ul, ol {
-            padding-left: 15px;
-            margin-bottom: 15px;
-            margin-left: 15px;
-
-            li {
-                margin-bottom: 0.3 em;
+        .news {
+            h1 {
+                font-size: 32px;
+                line-height: 40px;
+                margin: 10px 0 20px 0;
             }
-        }
+        
+            .news-container {
+                ul, ol {
+                    padding-left: 15px;
+                    margin-bottom: 15px;
+                    margin-left: 15px;
+        
+                    li {
+                        margin-bottom: 0.3 em;
+                    }
+                }
+        
+                img {
+                    height: auto !important;
+                }
+        
+                a {
+                    color: $primaryColor;
+                }
+        
+                h3 {
+                    font-size: 25px;
+                }
+        
+                blockquote {
+                    font-size: 16px;
+                    border-left: 5px solid $primaryColor;
+                    font-style: italic;
+                }
 
-        img {
-            height: auto !important;
-        }
+                table {
+                    width: 100%;
+                    margin-bottom: 14px;
 
-        a {
-            color: $primaryColor;
-        }
+                    th, td {
+                        padding: 15px;
+                    }
+                }
 
-        h3 {
-            font-size: 25px;
-        }
-
-        blockquote {
-            font-size: 16px;
-            border-left: 5px solid $primaryColor;
-            font-style: italic;
+                table, th, td {
+                    border: 1px solid #ccc;
+                }
+            }
         }
     }
 }
@@ -236,7 +273,7 @@
             left: 0;
             width: 150px;
             height: 3px;
-            background: $supernova;
+            background: $primaryColor2;
         }
     }
 
@@ -300,8 +337,8 @@
                         height: 50px;
                         line-height: 46px;
                         font-size: 1.3em;
-                        border: 2px solid #fff;
-                        color: #fff;
+                        border: 2px solid $white;
+                        color: $white;
                         text-align: center;
                         -webkit-border-radius: 50%;
                         -moz-border-radius: 50%;
@@ -325,7 +362,7 @@
                 line-height: 22px;
                 height: 45px;
                 max-height: 45px;
-                color: #3c3950;
+                color: $primaryColor;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 display: -webkit-box;
@@ -373,7 +410,7 @@
             left: 0;
             width: 150px;
             height: 3px;
-            background: $supernova;
+            background: $primaryColor2;
         }
     }
 
@@ -442,7 +479,7 @@
             left: 0;
             width: 150px;
             height: 3px;
-            background: $supernova;
+            background: $primaryColor2;
         }
     }
 

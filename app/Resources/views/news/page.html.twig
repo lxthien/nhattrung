@@ -11,56 +11,57 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container page page-detail">
-        <div class="row">
-            {# Side bar #}
-            {{ include('layout/sidebar.html.twig') }}
-            
-            <div class="col-12 col-md-12 col-lg-9">
+    <div class="wrapper-container-item-detail">
+        <div class="container page wrapper-container page-detail">
+            <div class="row">
                 {# breadcrumbs #}
                 {{ include('news/components/breadcrumbs.html.twig') }}
 
-                <article id="post-{{ post.getId() }}" class="news hentry" itemscope itemtype="http://schema.org/Article">
-                    {# Begin google snippet #}
-                    <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ absolute_url(path('news_show', {'slug': post.getUrl() })) }}"/>
-                    <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-                        <meta itemprop="name" content="{{ get_setting('siteName') }}"/>
-                    </div>
-                    <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-                        <meta itemprop="url" content="{{ (vich_uploader_asset(post, 'imageFile') ? app.request.getUriForPath(vich_uploader_asset(post, 'imageFile')) : absolute_url(asset('assets/images/no-image.png'))) | imagine_filter('news_382_285') }}">
-                        <meta itemprop="width" content="382">
-                        <meta itemprop="height" content="285">
-                    </div>
-                    <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-                        <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-                            <meta itemprop="url" content="{{ absolute_url(asset('assets/images/logo.png')) }}">
-                            <meta itemprop="width" content="376">
-                            <meta itemprop="height" content="218">
+                <div class="col-12 col-md-12 col-lg-8">
+                    <article id="post-{{ post.getId() }}" class="news hentry" itemscope itemtype="http://schema.org/Article">
+                        {# Begin google snippet #}
+                        <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ absolute_url(path('news_show', {'slug': post.getUrl() })) }}"/>
+                        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+                            <meta itemprop="name" content="{{ get_setting('siteName') }}"/>
                         </div>
-                        <meta itemprop="name" content="{{ get_setting('siteName') }}">
-                    </div>
-                    <meta itemprop="datePublished" content="{{ post.getCreatedAt()|date("Y-m-d h:m:s") }}"/>
-                    <meta itemprop="dateModified" content="{{ post.getUpdatedAt()|date("Y-m-d h:m:s") }}"/>
-                    {# End google snippet #}
+                        <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                            <meta itemprop="url" content="{{ (vich_uploader_asset(post, 'imageFile') ? app.request.getUriForPath(vich_uploader_asset(post, 'imageFile')) : absolute_url(asset('assets/images/no-image.png'))) | imagine_filter('news_382_285') }}">
+                            <meta itemprop="width" content="382">
+                            <meta itemprop="height" content="285">
+                        </div>
+                        <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+                            <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                                <meta itemprop="url" content="{{ absolute_url(asset('assets/images/logo.png')) }}">
+                                <meta itemprop="width" content="376">
+                                <meta itemprop="height" content="218">
+                            </div>
+                            <meta itemprop="name" content="{{ get_setting('siteName') }}">
+                        </div>
+                        <meta itemprop="datePublished" content="{{ post.getCreatedAt()|date("Y-m-d h:m:s") }}"/>
+                        <meta itemprop="dateModified" content="{{ post.getUpdatedAt()|date("Y-m-d h:m:s") }}"/>
+                        {# End google snippet #}
 
-                    <h1 class="entry-title block-title" itemprop="headline">{{ post.getTitle() }}</h1>
-                    
-                    <div class="news-container" itemprop="articleBody">
-                        {{ post.getContents()|raw }}
-                    </div>
+                        <h1 class="entry-title block-title" itemprop="headline">{{ post.getTitle() }}</h1>
+                        
+                        <div class="news-container" itemprop="articleBody">
+                            {{ post.getContents()|raw }}
+                        </div>
 
-                    {# Rating and Share #}
-                    <div class="rating-share-container">
-                        {{ include('news/rating/rating.html.twig') }}
-                        {{ include('news/components/share.html.twig') }}
-                    </div>
+                        {# Rating and Share #}
+                        <div class="rating-share-container">
+                            {{ include('news/components/share.html.twig') }}
+                        </div>
 
-                    {# List comments #}
-                    {{ include('news/comments/list.html.twig') }}
-                    
-                    {# Render form comment #}
-                    {{ include('news/comments/form.html.twig') }}
-                </article>
+                        {# List comments #}
+                        {{ include('news/comments/list.html.twig') }}
+                        
+                        {# Render form comment #}
+                        {{ include('news/comments/form.html.twig') }}
+                    </article>
+                </div>
+
+                {# Side bar #}
+                {{ include('layout/sidebar.html.twig') }}
             </div>
         </div>
     </div>

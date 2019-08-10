@@ -223,8 +223,8 @@ fos_user:
     service:
         mailer: fos_user.mailer.twig_swift
     from_email:
-        address: "hotro.xaydungkimanh@gmail.com"
-        sender_name: "Xây Dựng Kim Anh"
+        address: "hotro.xaydungnhattrung@gmail.com"
+        sender_name: "Xây Dựng Nhật Trung"
     registration:
         form:
             type: AppBundle\Form\RegistrationType

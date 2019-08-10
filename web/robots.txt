@@ -4,4 +4,4 @@ Disallow: /admin
 Disallow: /wp-content
 Disallow: /wp-json
 
-Sitemap: https://xaydungkimanh.com/sitemap.xml
+Sitemap: https://xaydungnhattrung.net/sitemap.xml

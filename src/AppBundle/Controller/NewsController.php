@@ -96,24 +96,6 @@ class NewsController extends Controller
                 ->setParameter('enable', 1)
                 ->orderBy('p.createdAt', 'DESC')
                 ->getQuery()->getResult();
-
-            // No items on this page
-            if (count($news) === 0) {
-                $tag = $this->getDoctrine()
-                    ->getRepository(Tag::class)
-                    ->findOneBy(
-                        array('url' => $level1)
-                    );
-
-                $news = $this->getDoctrine()
-                    ->getRepository(News::class)
-                    ->createQueryBuilder('n')
-                    ->innerJoin('n.tags', 't')
-                    ->where('t.id = :tags_id')
-                    ->setParameter('tags_id', $tag->getId())
-                    ->orderBy('n.createdAt', 'DESC')
-                    ->getQuery()->getResult();
-            }
         } else {
             $news = $this->getDoctrine()
                 ->getRepository(News::class)
@@ -235,8 +217,10 @@ class NewsController extends Controller
             ]);
         } else {
             $imagePath = $this->helper->asset($post, 'imageFile');
-            $imagePath = substr($imagePath, 1);
-            $imageSize = getimagesize($imagePath);
+            if (!empty($imagePath)) {
+                $imagePath = substr($imagePath, 1);
+                $imageSize = getimagesize($imagePath);
+            }
 
             return $this->render('news/show.html.twig', [
                 'post'          => $post,
@@ -248,7 +232,7 @@ class NewsController extends Controller
                 'ratingValue'   => round($rating['ratingValue']),
                 'ratingCount'   => round($rating['ratingCount']),
                 'comments'      => $comments,
-                'imageSize'    => $imageSize
+                'imageSize'     => !empty($imagePath) ? $imageSize : null
             ]);
         }
     }
@@ -534,7 +518,7 @@ class NewsController extends Controller
                 if (null !== $comment->getId()) {
                     $message = \Swift_Message::newInstance()
                         ->setSubject($this->get('translator')->trans('comment.email.title', ['%siteName%' => $this->get('settings_manager')->get('siteName')]))
-                        ->setFrom(['hotro.xaydungkimanh@gmail.com' => $this->get('settings_manager')->get('siteName')])
+                        ->setFrom(['hotro.xaydungnhatthu@gmail.com' => $this->get('settings_manager')->get('siteName')])
                         ->setTo($this->get('settings_manager')->get('emailContact'))
                         ->setBody(
                             $this->renderView(
@@ -642,14 +626,14 @@ class NewsController extends Controller
                     'Biệt thự' => 2,
                     'Nhà cấp 4' => 3,
                 ),
-                'label' => 'Loại nhà'
+                'label' => 'Chọn loại nhà'
             ))
             ->add('method', ChoiceType::class, array(
                 'choices'  => array(
                     'Xây phần thô' => 1,
                     'Xây trọn gói' => 2,
                 ),
-                'label' => 'Hình thức xây dựng'
+                'label' => 'Chọn hình thức'
             ))
             ->add('wide', TextType::class, array(
                 'label' => 'Chiều rộng (m)',
@@ -660,7 +644,7 @@ class NewsController extends Controller
             ->add('long', TextType::class, array(
                 'label' => 'Chiều dài (m)',
                 'attr' => array(
-                    'placeholder' => 'VD: Nhập 12 hoặc 12.3'
+                    'placeholder' => 'VD: Nhập 15 hoặc 15.8'
                 )
             ))
             ->add('floor', ChoiceType::class, array(
@@ -673,7 +657,7 @@ class NewsController extends Controller
                     '1 trệt 5 lầu' => 6,
                     '1 trệt 6 lầu' => 7,
                 ),
-                'label' => 'Số tầng'
+                'label' => 'Chọn số tầng'
             ))
             ->add('mong', ChoiceType::class, array(
                 'choices'  => array(
@@ -681,16 +665,16 @@ class NewsController extends Controller
                     'Móng băng' => 2,
                     'Móng đơn' => 3,
                 ),
-                'label' => 'Móng nhà'
+                'label' => 'Chọn móng nhà'
             ))
             ->add('mai', ChoiceType::class, array(
                 'choices'  => array(
-                    'Mái bằng đúc BTCT' => 1,
+                    'Mái bằng đúc bê tông cốt thép' => 1,
                     'Mái lợp tôn lạnh' => 2,
                     'Mái xà gồ thép lợp ngói' => 3,
-                    'Mái đúc BTCT lợp ngói' => 4,
+                    'Mái đúc bê tông cốt thép lợp ngói' => 4,
                 ),
-                'label' => 'Mái nhà'
+                'label' => 'Chọn mái nhà'
             ))
             ->add('reset', ResetType::class, array(
                 'label' => 'Nhập lại'

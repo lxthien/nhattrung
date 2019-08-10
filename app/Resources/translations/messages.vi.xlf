@@ -82,7 +82,7 @@
             </trans-unit>
             <trans-unit id="title.page_new">
                 <source>title.page_new</source>
-                <target>Add New Page</target>
+                <target>Thêm trang mới</target>
             </trans-unit>
 
             <!-- Action -->
@@ -284,31 +284,31 @@
             </trans-unit>
             <trans-unit id="newscategory.created_successfully">
                 <source>newscategory.created_successfully</source>
-                <target>News Category created successfully!</target>
+                <target>Tạo danh mục thành công!</target>
             </trans-unit>
             <trans-unit id="title.newscategory_new">
                 <source>title.newscategory_new</source>
-                <target>News Category New</target>
+                <target>Tạo mới danh mục</target>
             </trans-unit>
             <trans-unit id="action.create_newscategory">
                 <source>action.create_newscategory</source>
-                <target>Create News Category</target>
+                <target>Tạo danh mục</target>
             </trans-unit>
             <trans-unit id="label.create_newscategory">
                 <source>label.create_newscategory</source>
-                <target>Create News Category</target>
+                <target>Tạo danh mục</target>
             </trans-unit>
             <trans-unit id="title.edit_newscategory">
                 <source>title.edit_newscategory</source>
-                <target>Edit Category "%id%"</target>
+                <target>Sửa danh mục "%id%"</target>
             </trans-unit>
             <trans-unit id="newscategory.updated_successfully">
                 <source>newscategory.updated_successfully</source>
-                <target>News Category updated successfully!</target>
+                <target>Cập nhật danh mục thành công!</target>
             </trans-unit>
             <trans-unit id="newscategory.deleted_successfully">
                 <source>newscategory.deleted_successfully</source>
-                <target>News Category deleted successfully!</target>
+                <target>Xáo danh mục thành công!</target>
             </trans-unit>
 
             <!-- Posts -->
@@ -533,7 +533,7 @@
             </trans-unit>
             <trans-unit id="post.archives.title">
                 <source>post.archives.title</source>
-                <target>%title% - Trang %currentPage% của %totalPage% | Xây Dựng Kim Anh</target>
+                <target>%title% - Trang %currentPage% của %totalPage% | Xây Dựng Nhật Trung</target>
             </trans-unit>
 
             <trans-unit id="post.do_not_have_item_on_this_page">
@@ -568,7 +568,7 @@
             </trans-unit>
             <trans-unit id="news.news_related">
                 <source>news.news_related</source>
-                <target>Tin liên quan</target>
+                <target>Tin cùng danh mục</target>
             </trans-unit>
             <trans-unit id="view.details">
                 <source>view.details</source>
@@ -576,7 +576,7 @@
             </trans-unit>
             <trans-unit id="news.hot">
                 <source>news.hot</source>
-                <target>Tin nổi bật</target>
+                <target>Có thể bạn quan tâm</target>
             </trans-unit>
             <trans-unit id="news.recent">
                 <source>news.recent</source>

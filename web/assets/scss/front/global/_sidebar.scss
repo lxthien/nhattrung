@@ -40,7 +40,7 @@
                 content: "";
                 width: 90px;
                 height: 3px;
-                background: $supernova;
+                background: $primaryColor2;
             }
         }
 
@@ -73,8 +73,8 @@
                 font-size: 17px;
 
                 i {
-                    color: #FDC502;
-                    margin-right: 5px;
+                    color: $primaryColor2;
+                    margin-right: 8px;
                 }
 
                 span {

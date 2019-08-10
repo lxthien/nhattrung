@@ -1,7 +1,7 @@
 footer {
     padding-top: 50px;
     position: relative;
-    border-top: 3px solid $supernova;
+    border-top: 5px solid $primaryColor;
 
     @media only screen and (max-width: 768px) {
         padding-top: 0;
@@ -10,7 +10,8 @@ footer {
     &::after {
         content: "";
         background-image: url("../../assets/images/background-footer.jpg");
-        opacity: 0.2;
+        background-size: cover;
+        opacity: 0.3;
         position: absolute;
         top: 0;
         left: 0;
@@ -20,6 +21,8 @@ footer {
     }
 
     h3.text-uppercase {
+        font-size: 26px;
+
         @media (max-width: 768px) {
             margin-top: 35px;
         }
@@ -44,8 +47,30 @@ footer {
             }
         }
 
+        .social-wrapper {
+            .td-social-icon-wrap {
+                display: inline-block;
+                margin: 5px 5px 5px 0;
+                
+                a {
+                    color: $primaryColor;
+    
+                    i {
+                        font-size: 14px;
+                        width: 40px;
+                        height: 40px;
+                        line-height: 40px;
+                        text-align: center;
+                        border: 1px solid $primaryColor;
+                        position: relative;
+                        color: $primaryColor;
+                    }
+                }
+            }
+        }
+
         .event-footer {
-            margin-top: 50px;
+            margin-top: 20px;
     
             .event-footer-item {
                 h6 {
@@ -71,56 +96,13 @@ footer {
         }
     }
 
-    .footer-middle {
-        padding-top: 20px;
-        margin-top: 20px;
-        border-top: 1px solid $supernova;
-
-        img {
-            margin: 0 auto;
-            display: block;
-            width: 25%;
-            padding: 20px 0;
-
-            @media only screen and (max-width: 768px) {
-                width: 90%;
-            }
-        }
-
-        .footer-text-wrap {
-            p {
-                margin-bottom: 5px;
-            }
-        }
-
-        .td-social-icon-wrap {
-            display: inline-block;
-            margin: 5px 5px 5px 0;
-            
-            a {
-                color: $black;
-
-                i {
-                    font-size: 14px;
-                    width: 40px;
-                    height: 40px;
-                    line-height: 40px;
-                    text-align: center;
-                    border: 1px solid $white;
-                    position: relative;
-                    color: $black;
-                }
-            }
-        }
-    }
-
     .keyword {
         padding-left: 0;
         
         li {
             list-style-type: none;
             display: inline-block;
-            border: 1px solid $supernova;
+            border: 1px solid $primaryColor;
             margin: 0 0 8px 0;
             padding: 0 8px;
 
@@ -135,7 +117,7 @@ footer {
         height: 45px;
         line-height: 30px;
         color: $black;
-        border-top: 1px solid $supernova;
+        border-top: 1px solid $primaryColor;
         margin-top: 8px;
         padding-top: 8px;
 
