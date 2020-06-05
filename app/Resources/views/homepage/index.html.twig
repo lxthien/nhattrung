@@ -68,7 +68,7 @@
                                     <div class="mid-img">
                                         <a href="{{ path('news_show', {'slug': priceOnHomepage.getUrl() }) }}" title="{{ priceOnHomepage.getTitle() }}">
                                             <div class="center-img">
-                                                <img alt="{{ priceOnHomepage.getTitle() }}" class="img-responsive" src="{{ (vich_uploader_asset(priceOnHomepage, 'imageFile') ? vich_uploader_asset(priceOnHomepage, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_440_440') }}" />
+                                                <img alt="{{ priceOnHomepage.getTitle() }}" class="img-responsive lazyload" data-src="{{ (vich_uploader_asset(priceOnHomepage, 'imageFile') ? vich_uploader_asset(priceOnHomepage, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_440_440') }}" />
                                             </div>
                                         </a>
                                     </div>
@@ -84,7 +84,7 @@
         </div>
 
         {% for blockOnHomepage in blocksOnHomepage %}
-            {% if blockOnHomepage.category.getUrl() != 'du-an' %}
+            {% if blockOnHomepage.category.getId() != 3 and blockOnHomepage.category.getId() != 4 and blockOnHomepage.category.getId() != 2 %}
                 <div class="wrapper-container-item block-homepage">
                     <div class="container">
                         <div class="row">
@@ -113,7 +113,7 @@
                             <div class="col-md-12 title-list-news-items">
                                 <h1 class="text-center text-uppercase">
                                     <span>Nhật </span> Trung <i class="fas fa-angle-right"></i> 
-                                    Dự án nổi bật
+                                    {{ blockOnHomepage.category.getName() }}
                                 </h1>
                                 <p>{{ blockOnHomepage.description }}</p>
                             </div>

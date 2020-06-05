@@ -10,8 +10,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>{% block title %}{{ get_setting('siteName') }}{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <meta name="robots" content="noindex" />
+        <link rel="icon" href="{{ asset('favicon.ico') }}">
 
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('assets/sufeeadmin/assets/css/normalize.css') }}">

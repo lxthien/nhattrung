@@ -163,7 +163,7 @@ class NewsController extends Controller
             ->setParameter('postType', $post->getPostType())
             ->setParameter('category', $post->getCategory())
             ->setParameter('enable', 1)
-            ->setMaxResults( 8 )
+            ->setMaxResults( 6 )
             ->orderBy('r.createdAt', 'DESC')
             ->getQuery()
             ->getResult();
@@ -355,6 +355,7 @@ class NewsController extends Controller
             ->getResult();
 
         return $this->render('news/listByCategory.html.twig', [
+            'category' => $category,
             'posts' => $posts,
         ]);
     }
