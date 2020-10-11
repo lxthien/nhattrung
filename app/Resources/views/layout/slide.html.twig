@@ -7,14 +7,25 @@
             <li data-target="#myCarousel" data-slide-to="2" class=""></li>
             <li data-target="#myCarousel" data-slide-to="3" class=""></li>
             <li data-target="#myCarousel" data-slide-to="4" class=""></li>
-            <li data-target="#myCarousel" data-slide-to="5" class=""></li>
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="item active">
+                <a href="{{ path('news_show', {'slug': 'sua-chua-nha-cai-tao-nha-cu-tai-1419-le-van-luong-nha-be-hcm' }) }}">
+                    <img class="lazyload"
+                        src="{{ asset('assets/images/banner/sua-nha-dien-vien-thanh-dat.jpg') }}"
+                        alt="Xây nhà 3 tầng trọn gói">
+                </a>
+                <div class="container">
+                    <div class="carousel-caption text-left">
+                        <h2 class="text-uppercase">Xây Dựng Nhật Trung</h2>
+                        <p>Sửa nhà diễn viên Thành Đạt, Nhà Bè</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
                 <a href="{{ path('news_show', {'slug': 'du-an-xay-nha-tron-goi-anh-xang-binh-duong' }) }}">
                     <img class="lazyload"
-                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                        data-src="{{ asset('assets/images/banner/xay-nha-tron-goi-binh-duong.jpg') }}"
+                        src="{{ asset('assets/images/banner/xay-nha-tron-goi-binh-duong.jpg') }}"
                         alt="Xây nhà 3 tầng trọn gói">
                 </a>
                 <div class="container">
@@ -25,38 +36,9 @@
                 </div>
             </div>
             <div class="item">
-                <a href="{{ path('news_show', {'slug': 'xay-nha-3-tang-tron-goi-anh-hieu-cu-chi' }) }}">
-                    <img class="lazyload"
-                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                        data-src="{{ asset('assets/images/banner/xay-nha-3-tang-tron-goi.jpg') }}"
-                        alt="Xây nhà 3 tầng trọn gói">
-                </a>
-                <div class="container">
-                    <div class="carousel-caption text-left">
-                        <h2 class="text-uppercase">Xây Dựng Nhật Trung</h2>
-                        <p>Xây nhà 3 tầng trọn gói</p>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <a href="{{ path('news_show', {'slug': 'cong-ty-xay-nha-tron-goi-uy-tin-tai-tp-hcm' }) }}">
-                    <img class="lazyload"
-                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                        data-src="{{ asset('assets/images/banner/cong-ty-xay-nha-tron-goi.jpg') }}"
-                        alt="Công ty chuyên thi công xây nhà trọn gói">
-                </a>
-                <div class="container">
-                    <div class="carousel-caption text-left">
-                        <h2 class="text-uppercase">Xây Dựng Nhật Trung</h2>
-                        <p>Công ty chuyên thi công xây nhà trọn gói</p>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
                 <a href="{{ path('news_show', {'slug': 'bang-gia-xay-nha-tron-goi-moi-nhat' }) }}">
                     <img class="lazyload"
-                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                        data-src="{{ asset('assets/images/banner/banner-thi-cong-phan-tho.jpg') }}"
+                        src="{{ asset('assets/images/banner/banner-thi-cong-phan-tho.jpg') }}"
                         alt="Thi công xây dựng phần thô">
                 </a>
                 <div class="container">
@@ -69,8 +51,7 @@
             <div class="item">
                 <a href="{{ path('news_show', {'slug': 'bang-gia-xay-nha-phan-tho-moi-nhat' }) }}">
                     <img class="lazyload"
-                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                        data-src="{{ asset('assets/images/banner/banner-xay-nha-phan-tho.jpg') }}"
+                        src="{{ asset('assets/images/banner/banner-xay-nha-phan-tho.jpg') }}"
                         alt="Xây Dựng Nhật Trung">
                 </a>
                 <div class="container">
@@ -83,8 +64,7 @@
             <div class="item">
                 <a href="{{ path('homepage') }}">
                     <img class="lazyload"
-                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                        data-src="{{ asset('assets/images/banner/xay-dung-nhat-trung.jpg') }}"
+                        src="{{ asset('assets/images/banner/xay-dung-nhat-trung.jpg') }}"
                         alt="Xây Dựng Nhật Trung">
                 </a>
                 <div class="container">

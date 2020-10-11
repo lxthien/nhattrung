@@ -304,9 +304,17 @@
                 display: block;
                 overflow: hidden;
                 position: relative;
+                width: 292px;
+                height: 205px;
+
+                @media only screen and (max-width: 767.98px) {
+                    width: 100%;
+                    height: auto;
+                }
 
                 .img-thumbnail {
                     border-radius: 0px;
+                    border: 1px solid #ccc;
                     padding: 0px;
                     border: none;
                     width: 100%;
@@ -357,11 +365,11 @@
             }
     
             a.related-title {
-                margin: 10px 0px;
-                font-size: 15px;
-                line-height: 22px;
-                height: 45px;
-                max-height: 45px;
+                margin: 15px 0px;
+                font-size: 18px;
+                line-height: 26px;
+                height: 50px;
+                max-height: 50px;
                 color: $primaryColor;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -370,7 +378,6 @@
                 -webkit-box-orient: vertical;
                 font-family: $robotoCondesed;
                 font-weight: bold;
-                text-transform: uppercase;
                 text-align: center;
 
                 &:hover {

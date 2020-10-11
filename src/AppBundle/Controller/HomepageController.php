@@ -44,7 +44,7 @@ class HomepageController extends Controller
                                     ->find($listCategoriesOnHomepage[$i]["id"]);
 
                     if ($category) {
-                        if ($category->getId() != 2) {
+                        if ($category->getId() != 2 || $category->getId() != 3 || $category->getId() != 4) {
                             $posts = $this->getDoctrine()
                                 ->getRepository(News::class)
                                 ->findBy(
