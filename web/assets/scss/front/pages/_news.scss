@@ -279,22 +279,24 @@
 
     .row {
         .related-wrapper {
-            margin-bottom: 0;
+            margin-bottom: 20px;
 
-            &:hover {
-                .related-img {
-                    .img-thumbnail {
-                        transform: scale(1.5);
-                    }
+            @media only screen and (min-width : 768px) {
+                &:hover {
+                    .related-img {
+                        .img-thumbnail {
+                            transform: scale(1.5);
+                        }
 
-                    a {
-                        opacity: 1;
+                        a {
+                            opacity: 1;
 
-                        i {
-                            -webkit-transform: translate(-50%, -50%) rotate(0);
-                            -moz-transform: translate(-50%, -50%) rotate(0);
-                            -ms-transform: translate(-50%, -50%) rotate(0);
-                            transform: translate(-50%, -50%) rotate(0);
+                            i {
+                                -webkit-transform: translate(-50%, -50%) rotate(0);
+                                -moz-transform: translate(-50%, -50%) rotate(0);
+                                -ms-transform: translate(-50%, -50%) rotate(0);
+                                transform: translate(-50%, -50%) rotate(0);
+                            }
                         }
                     }
                 }
@@ -304,8 +306,8 @@
                 display: block;
                 overflow: hidden;
                 position: relative;
-                width: 292px;
-                height: 205px;
+                width: 100%;
+                height: 100%;
 
                 @media only screen and (max-width: 767.98px) {
                     width: 100%;
@@ -382,6 +384,13 @@
 
                 &:hover {
                     text-decoration: none;
+                }
+
+                @media only screen and (max-width: 767.98px) {
+                    height: auto;
+                    max-height: auto;
+                    font-size: 22px;
+                    line-height: 30px;
                 }
             }
 
@@ -504,8 +513,21 @@
                 }
             }
 
+            input {
+                width: 350px;
+
+                @media only screen and (max-width: 767.98px) {
+                    width: 100%;
+                }
+            }
+
             textarea.form-control {
                 height: 100px;
+                width: 500px;
+
+                @media only screen and (max-width: 767.98px) {
+                    width: 100%;
+                }
             }
 
             label.error {

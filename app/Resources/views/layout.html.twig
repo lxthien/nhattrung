@@ -60,9 +60,9 @@
         {{ get_setting('googleAnalytic')|raw }}
 
         <!-- Custom css -->
-        {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
-        {% endblock %}
+        <style type="text/css">
+            {{ source('@web/css/app.css', ignore_missing = true) }}
+        </style>
 
         <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

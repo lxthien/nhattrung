@@ -12,7 +12,6 @@
 
             .skew-divider {
                 content: "";
-                background-color: #276fa5;
                 background-image: linear-gradient(141deg, #276fa5 0%, #276fa5 50%, #276fa5 75%);
                 height: 100%;
                 position: absolute;
@@ -28,20 +27,17 @@
             }
 
             marquee {
-                font-size: 14px;
-                text-transform: uppercase;
+                font-size: 16px;
                 font-family: $robotoCondesed;
                 line-height: 35px;
                 font-weight: 600;
                 color: $white;
-                text-shadow: 0.2px 0.2px 0.2px $white;
     
                 span {
                     margin-right: 0;
                     display: contents;
-                    font-size: 14px;
+                    font-size: 16px;
                     color: $supernova;
-                    text-shadow: 0.2px 0.2px 0.2px $supernova;
                 }
             }
         }
