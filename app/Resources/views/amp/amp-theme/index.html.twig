@@ -1,0 +1,317 @@
+<!doctype html>
+<html ⚡ lang="{{ app.request.locale }}">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ post.getPageTitle() is not null ? post.getPageTitle() : post.getTitle() }}</title>
+        <meta name="description" content="{{ post.getPageDescription() is not null ? post.getPageDescription() : post.getDescription() }}">
+        <meta name="keywords" content="{{ post.getPageKeyword() }}">
+        <link rel="canonical" href="{{ url('news_show', { slug: post.getUrl() }) }}">
+        <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <style amp-boilerplate>
+            {% include '@amp_theme/css/amp-boilerplate.html.twig' %}</style>
+        {% include '@amp_theme/css/amp-boilerplate-noscript.html.twig' %}
+        <style amp-custom>
+            {% include '@amp_theme/css/amp-custom.html.twig' %}</style>
+        <script async src="https://cdn.ampproject.org/v0.js"></script>
+        <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+        <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+        <script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
+        <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
+        <script async custom-element="amp-addthis" src="https://cdn.ampproject.org/v0/amp-addthis-0.1.js"></script>
+    </head>
+    <body>
+        <amp-analytics type="gtag" data-credentials="include">
+            <script type="application/json">
+            {
+                "vars" : {
+                    "gtag_id": "UA-104146122-1",
+                    "config" : {
+                        "UA-104146122-1": { "groups": "default" }
+                    }
+                }
+            }
+            </script>
+        </amp-analytics>
+        <amp-animation id="showAnim" layout="nodisplay">
+            <script type="application/json">
+                {
+                    "duration": "200ms",
+                    "fill": "both",
+                    "iterations": "1",
+                    "direction": "alternate",
+                    "animations": [
+                        {
+                        "selector": "#scrollToTopButton",
+                        "keyframes": [
+                            { "opacity": "1", "visibility": "visible" }
+                        ]
+                        }
+                    ]
+                    }
+            </script>
+        </amp-animation>
+        <amp-animation id="hideAnim" layout="nodisplay">
+            <script type="application/json">
+                {
+                    "duration": "200ms",
+                    "fill": "both",
+                    "iterations": "1",
+                    "direction": "alternate",
+                    "animations": [
+                        {
+                        "selector": "#scrollToTopButton",
+                        "keyframes": [
+                            { "opacity": "0", "visibility": "hidden" }
+                        ]
+                        }
+                    ]
+                }
+            </script>
+        </amp-animation>
+
+        <div class="wrapper-container">
+            <nav role="navigation" id="top">
+                <amp-position-observer on="enter:hideAnim.start; exit:showAnim.start" layout="nodisplay">
+                </amp-position-observer>
+                <div id="menuToggle">
+                    <input type="checkbox"/>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    {{ knp_menu_render('AppBundle:Builder:mainMenu', {
+                        'allow_safe_labels': true,
+                    })|raw }}
+                </div>
+            </nav>
+
+            {{ include('news/components/breadcrumbs.html.twig') }}
+
+            <article role="article">
+                <h1>{{ post.title }}</h1>
+                <div class="article-content">
+                    {{ contentsAmp|raw }}
+                </div>
+
+                {# List tags #}
+                {{ include('amp/amp-theme/tags.html.twig') }}
+
+                {# Rating and Share #}
+                <div class="rating-share-container">
+                    {{ include('amp/amp-theme/share.html.twig') }}
+                </div>
+
+                {# List related news #}
+                {{ include('amp/amp-theme/related.html.twig') }}
+
+                {# List comments #}
+                {{ include('amp/amp-theme/list.html.twig') }}
+            </article>
+            <footer>
+                <div class="container">
+                    <div class="row footer-top">
+                        <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                            <h3 class="text-uppercase">Xây Dựng Nhật Trung</h3>
+                            <div class="footer-text-wrap">
+                                <p>Xây Dựng Nhật Trung là công ty hoạt động trong lĩnh vực tư vấn thiết kế và thi công các công trình xây dựng nhà phố, biệt thự và sửa chữa nhà, cải tạo nhà cũ. Phạm vi hoạt động của công ty chúng tôi là trên địa bàn Thành Phố Hồ Chí Minh và các tỉnh thành lân cận: Đồng Nai, Bình Dương, Củ Chi, Long An, …</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                            <h3 class="text-uppercase">Thông tin liên hệ</h3>
+                            <ul class="footer-company">
+                                <li>
+                                    <i class="fa fa-map-marker"></i>
+                                    <span>224 Gò Dầu, P. Tân Qúy, Q. Tân Phú, TP HCM</span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-phone"></i>
+                                    <span><a href="tel:0936404139">0936.404.139</a></span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-envelope"></i>
+                                    <span><a href="mailto:{{ get_setting('emailContact') }}">{{ get_setting('emailContact') }}</a></span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-internet-explorer"></i>
+                                    <span><a href="https://xaydungnhattrung.net/">www.xaydungnhattrung.net</a></span>
+                                </li>
+                            </ul>
+
+                            <div class="social-wrapper">
+                                <span class="td-social-icon-wrap">
+                                    <a target="_blank" href="{{ get_setting('linkToFacebook') }}" title="Xây Dựng Nhật Trung trên Facebook">
+                                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                                    </a>
+                                </span>
+                                <span class="td-social-icon-wrap">
+                                    <a target="_blank" href="{{ get_setting('linkToYoutube') }}" title="Xây Dựng Nhật Trung trên Youtube">
+                                        <i class="fa fa-youtube" aria-hidden="true"></i>
+                                    </a>
+                                </span>
+                                <span class="td-social-icon-wrap">
+                                    <a target="_blank" href="{{ get_setting('linkToLinkedin') }}" title="Xây Dựng Nhật Trung trên Linkedin">
+                                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                    </a>
+                                </span>
+                                <span class="td-social-icon-wrap">
+                                    <a target="_blank" href="{{ get_setting('linkToWordpress') }}" title="Xây Dựng Nhật Trung trên Wordpress">
+                                        <i class="fa fa-wordpress" aria-hidden="true"></i>
+                                    </a>
+                                </span>
+                            </div>
+
+                            <div class="event-footer row">
+                                <div class="col-12 col-sm-12 col-md-12">
+                                    <div class="event-footer-item" itemtype="http://schema.org/Event" itemscope="">
+                                        <meta content="⭐ Bảng giá sửa nhà trọn gói" itemprop="name">
+                                        <meta content="⭐ Bảng giá sửa nhà trọn gói" itemprop="description">
+                                        <h6>
+                                            <a href="{{ path('news_show', {'slug': 'bang-gia-sua-chua-nha-moi-nhat' }) }}" itemprop="url">
+                                                <span>⭐ Bảng giá sửa nhà trọn gói</span>
+                                            </a>
+                                        </h6>
+                                        <meta content="2025-01-01T1:00-02:00" itemprop="startDate">
+                                        <meta content="2026-01-01T1:00-02:00" itemprop="endDate">
+                                        <meta content="https://schema.org/OnlineEventAttendanceMode" itemprop="eventAttendanceMode">
+                                        <meta content="https://schema.org/EventScheduled" itemprop="eventStatus">
+                                        <meta content="{{ asset('assets/images/logo.png') }}" itemprop="image">
+                                        <div itemprop="location" itemscope itemtype="http://schema.org/Place">
+                                            <meta content="☎️ Hotline 0936.404.139" itemprop="name">
+                                            <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                                <meta content="224 Gò Dầu, Tân Quý, Tân Phú" itemprop="streetAddress">
+                                                <meta content="Ho Chi Minh" itemprop="addressLocality">
+                                                <meta content="VN" itemprop="addressRegion">
+                                                <meta content="700000" itemprop="postalCode">
+                                            </div>
+                                        </div>
+                                        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                            <meta content="{{ path('news_show', {'slug': 'bang-gia-sua-chua-nha-moi-nhat' }) }}" itemprop="url">
+                                            <meta content="0" itemprop="price">
+                                            <meta content="VND" itemprop="priceCurrency">
+                                            <meta content="https://schema.org/InStock" itemprop="availability">
+                                            <meta content="2025-01-01T1:00" itemprop="validFrom">
+                                        </div>
+                                        <div itemprop="performer" itemscope itemtype="http://schema.org/Person">
+                                            <meta content="Xây Dựng Nhật Trung" itemprop="name">
+                                        </div>
+                                        <div itemprop="organizer" itemscope itemtype="http://schema.org/Organization">
+                                            <meta content="Xây Dựng Nhật Trung" itemprop="name">
+                                            <meta content="https://xaydungnhattrung.net/" itemprop="url">
+                                        </div>
+                                    </div>
+                                    <div class="event-footer-item" itemtype="http://schema.org/Event" itemscope="">
+                                        <meta content="⭐ Bảng giá xây nhà trọn gói" itemprop="name">
+                                        <meta content="⭐ Bảng giá xây nhà trọn gói" itemprop="description">
+                                        <h6>
+                                            <a href="{{ path('news_show', {'slug': 'bang-gia-xay-nha-tron-goi-moi-nhat' }) }}" itemprop="url">
+                                                <span>⭐ Bảng giá xây nhà trọn gói</span>
+                                            </a>
+                                        </h6>
+                                        <meta content="2025-02-02T1:00-02:00" itemprop="startDate">
+                                        <meta content="2026-02-02T1:00-02:00" itemprop="endDate">
+                                        <meta content="https://schema.org/OnlineEventAttendanceMode" itemprop="eventAttendanceMode">
+                                        <meta content="https://schema.org/EventScheduled" itemprop="eventStatus">
+                                        <meta content="{{ asset('assets/images/logo.png') }}" itemprop="image">
+                                        <div itemprop="location" itemscope itemtype="http://schema.org/Place">
+                                            <meta content="☎️ Hotline 0936.404.139" itemprop="name">
+                                            <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                                <meta content="224 Gò Dầu, Tân Quý, Tân Phú" itemprop="streetAddress">
+                                                <meta content="Ho Chi Minh" itemprop="addressLocality">
+                                                <meta content="VN" itemprop="addressRegion">
+                                                <meta content="700000" itemprop="postalCode">
+                                            </div>
+                                        </div>
+                                        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                            <meta content="{{ path('news_show', {'slug': 'bang-gia-xay-nha-tron-goi-moi-nhat' }) }}" itemprop="url">
+                                            <meta content="4500000" itemprop="price">
+                                            <meta content="VND" itemprop="priceCurrency">
+                                            <meta content="https://schema.org/InStock" itemprop="availability">
+                                            <meta content="2025-02-02T1:00" itemprop="validFrom">
+                                        </div>
+                                        <div itemprop="performer" itemscope itemtype="http://schema.org/Person">
+                                            <meta content="Xây Dựng Nhật Trung" itemprop="name">
+                                        </div>
+                                        <div itemprop="organizer" itemscope itemtype="http://schema.org/Organization">
+                                            <meta content="Xây Dựng Nhật Trung" itemprop="name">
+                                            <meta content="https://xaydungnhattrung.net/" itemprop="url">
+                                        </div>
+                                    </div>
+                                    <div class="event-footer-item" itemtype="http://schema.org/Event" itemscope="">
+                                        <meta content="⭐ Bảng giá xây nhà phần thô" itemprop="name">
+                                        <meta content="⭐ Bảng giá xây nhà phần thô" itemprop="description">
+                                        <h6>
+                                            <a href="{{ path('news_show', {'slug': 'bang-gia-xay-nha-phan-tho-moi-nhat' }) }}" itemprop="url">
+                                                <span>⭐ Bảng giá xây nhà phần thô</span>
+                                            </a>
+                                        </h6>
+                                        <meta content="2025-03-03T1:00-02:00" itemprop="startDate">
+                                        <meta content="2026-03-03T1:00-02:00" itemprop="endDate">
+                                        <meta content="https://schema.org/OnlineEventAttendanceMode" itemprop="eventAttendanceMode">
+                                        <meta content="https://schema.org/EventScheduled" itemprop="eventStatus">
+                                        <meta content="{{ asset('assets/images/logo.png') }}" itemprop="image">
+                                        <div itemprop="location" itemscope itemtype="http://schema.org/Place">
+                                            <meta content="☎️ Hotline 0936.404.139" itemprop="name">
+                                            <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                                <meta content="224 Gò Dầu, Tân Quý, Tân Phú" itemprop="streetAddress">
+                                                <meta content="Ho Chi Minh" itemprop="addressLocality">
+                                                <meta content="VN" itemprop="addressRegion">
+                                                <meta content="700000" itemprop="postalCode">
+                                            </div>
+                                        </div>
+                                        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                            <meta content="{{ path('news_show', {'slug': 'bang-gia-xay-nha-phan-tho-moi-nhat' }) }}" itemprop="url">
+                                            <meta content="3200000" itemprop="price">
+                                            <meta content="VND" itemprop="priceCurrency">
+                                            <meta content="https://schema.org/InStock" itemprop="availability">
+                                            <meta content="2025-03-03T1:00" itemprop="validFrom">
+                                        </div>
+                                        <div itemprop="performer" itemscope itemtype="http://schema.org/Person">
+                                            <meta content="Xây Dựng Nhật Trung" itemprop="name">
+                                        </div>
+                                        <div itemprop="organizer" itemscope itemtype="http://schema.org/Organization">
+                                            <meta content="Xây Dựng Nhật Trung" itemprop="name">
+                                            <meta content="https://xaydungnhattrung.net/" itemprop="url">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                            <h3 class="text-uppercase">Từ khóa</h3>
+                            {{ get_setting('topKeyword')|raw }}
+                        </div>
+                    </div>
+                    <div class="row copyright">
+                        <div class="col-sm-12 text-center">
+                            <p>Copyright © {{ "now"|date('Y') }} <a href="https://xaydungnhatrung.net" title="Xây Dựng Nhật Trung">Xây Dựng Nhật Trung</a>, all rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="td-scroll-up go-to-top td-scroll-up-visible hidden scrollToTop" id="scrollToTopButton" on="tap:top.scrollTo(duration=200)">
+                    <i class="fa fa-chevron-up"></i>
+                </button>
+
+                <aside class="floating container hidden-sm hidden-md hidden-lg">
+                    <section class="row inside cover">
+                        <a class="call-now col-xs-6" href="tel:0936404139" title="Hotline: 0936404139">
+                            <div>
+                                <i class="fa fa-phone-square" aria-hidden="true"></i>
+                                <span>Hotline tư vấn</span>
+                                <strong>0936.404.139</strong>
+                            </div>
+                        </a>
+                        <a class="chat-us col-xs-6" href="{{ path('contact') }}">
+                            <div>
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                <span>Gửi yêu cầu</span>
+                                <strong>báo giá</strong>
+                            </div>
+                        </a>
+                    </section>
+                </aside>
+            </footer>
+        </div>
+    </body>
+</html>
+

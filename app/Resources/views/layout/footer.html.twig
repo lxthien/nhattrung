@@ -59,38 +59,116 @@
 
                 <div class="event-footer row">
                     <div class="col-12 col-sm-12 col-md-12">
-                        <div class="event-footer-item" itemtype="http://data-vocabulary.org/Event" itemscope="">
-                            <meta content="⭐ Bảng giá sửa nhà trọn gói" itemprop="eventType">
+                        <div class="event-footer-item" itemtype="http://schema.org/Event" itemscope="">
                             <meta content="⭐ Bảng giá sửa nhà trọn gói" itemprop="name">
                             <meta content="⭐ Bảng giá sửa nhà trọn gói" itemprop="description">
                             <h6>
-                            <a href="{{ path('news_show', {'slug': 'bang-gia-sua-chua-nha-moi-nhat' }) }}" itemprop="url">
-                                <span itemprop="summary">⭐ Bảng giá sửa nhà trọn gói</span> </a>
+                                <a href="{{ path('news_show', {'slug': 'bang-gia-sua-chua-nha-moi-nhat' }) }}" itemprop="url">
+                                    <span>⭐ Bảng giá sửa nhà trọn gói</span>
+                                </a>
                             </h6>
-                            <meta content="1/1/2025" itemprop="startDate">
-                            <meta content="☎️ Hotline 0936.40.41.39" itemprop="location">
+                            <meta content="2025-01-01T1:00-02:00" itemprop="startDate">
+                            <meta content="2026-01-01T1:00-02:00" itemprop="endDate">
+                            <meta content="https://schema.org/OnlineEventAttendanceMode" itemprop="eventAttendanceMode">
+                            <meta content="https://schema.org/EventScheduled" itemprop="eventStatus">
+                            <meta content="{{ asset('assets/images/logo.png') }}" itemprop="image">
+                            <div itemprop="location" itemscope itemtype="http://schema.org/Place">
+                                <meta content="☎️ Hotline 0936.404.139" itemprop="name">
+                                <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                    <meta content="224 Gò Dầu, Tân Quý, Tân Phú" itemprop="streetAddress">
+                                    <meta content="Ho Chi Minh" itemprop="addressLocality">
+                                    <meta content="VN" itemprop="addressRegion">
+                                    <meta content="700000" itemprop="postalCode">
+                                </div>
+                            </div>
+                            <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                <meta content="{{ path('news_show', {'slug': 'bang-gia-sua-chua-nha-moi-nhat' }) }}" itemprop="url">
+                                <meta content="0" itemprop="price">
+                                <meta content="VND" itemprop="priceCurrency">
+                                <meta content="https://schema.org/InStock" itemprop="availability">
+                                <meta content="2025-01-01T1:00" itemprop="validFrom">
+                            </div>
+                            <div itemprop="performer" itemscope itemtype="http://schema.org/Person">
+                                <meta content="Xây Dựng Nhật Trung" itemprop="name">
+                            </div>
+                            <div itemprop="organizer" itemscope itemtype="http://schema.org/Organization">
+                                <meta content="Xây Dựng Nhật Trung" itemprop="name">
+                                <meta content="https://xaydungnhattrung.net/" itemprop="url">
+                            </div>
                         </div>
-                        <div class="event-footer-item" itemtype="http://data-vocabulary.org/Event" itemscope="">
-                            <meta content="⭐ Bảng giá xây nhà trọn gói" itemprop="eventType">
+                        <div class="event-footer-item" itemtype="http://schema.org/Event" itemscope="">
                             <meta content="⭐ Bảng giá xây nhà trọn gói" itemprop="name">
                             <meta content="⭐ Bảng giá xây nhà trọn gói" itemprop="description">
                             <h6>
-                            <a href="{{ path('news_show', {'slug': 'bang-gia-xay-nha-tron-goi-moi-nhat' }) }}" itemprop="url">
-                                <span itemprop="summary">⭐ Bảng giá xây nhà trọn gói</span> </a>
+                                <a href="{{ path('news_show', {'slug': 'bang-gia-xay-nha-tron-goi-moi-nhat' }) }}" itemprop="url">
+                                    <span>⭐ Bảng giá xây nhà trọn gói</span>
+                                </a>
                             </h6>
-                            <meta content="2/2/2025" itemprop="startDate">
-                            <meta content="☎️ Hotline 0936.40.41.39" itemprop="location">
+                            <meta content="2025-02-02T1:00-02:00" itemprop="startDate">
+                            <meta content="2026-02-02T1:00-02:00" itemprop="endDate">
+                            <meta content="https://schema.org/OnlineEventAttendanceMode" itemprop="eventAttendanceMode">
+                            <meta content="https://schema.org/EventScheduled" itemprop="eventStatus">
+                            <meta content="{{ asset('assets/images/logo.png') }}" itemprop="image">
+                            <div itemprop="location" itemscope itemtype="http://schema.org/Place">
+                                <meta content="☎️ Hotline 0936.404.139" itemprop="name">
+                                <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                    <meta content="224 Gò Dầu, Tân Quý, Tân Phú" itemprop="streetAddress">
+                                    <meta content="Ho Chi Minh" itemprop="addressLocality">
+                                    <meta content="VN" itemprop="addressRegion">
+                                    <meta content="700000" itemprop="postalCode">
+                                </div>
+                            </div>
+                            <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                <meta content="{{ path('news_show', {'slug': 'bang-gia-xay-nha-tron-goi-moi-nhat' }) }}" itemprop="url">
+                                <meta content="4500000" itemprop="price">
+                                <meta content="VND" itemprop="priceCurrency">
+                                <meta content="https://schema.org/InStock" itemprop="availability">
+                                <meta content="2025-02-02T1:00" itemprop="validFrom">
+                            </div>
+                            <div itemprop="performer" itemscope itemtype="http://schema.org/Person">
+                                <meta content="Xây Dựng Nhật Trung" itemprop="name">
+                            </div>
+                            <div itemprop="organizer" itemscope itemtype="http://schema.org/Organization">
+                                <meta content="Xây Dựng Nhật Trung" itemprop="name">
+                                <meta content="https://xaydungnhattrung.net/" itemprop="url">
+                            </div>
                         </div>
-                        <div class="event-footer-item" itemtype="http://data-vocabulary.org/Event" itemscope="">
-                            <meta content="⭐ Bảng giá xây nhà phần thô" itemprop="eventType">
+                        <div class="event-footer-item" itemtype="http://schema.org/Event" itemscope="">
                             <meta content="⭐ Bảng giá xây nhà phần thô" itemprop="name">
                             <meta content="⭐ Bảng giá xây nhà phần thô" itemprop="description">
                             <h6>
-                            <a href="{{ path('news_show', {'slug': 'bang-gia-xay-nha-phan-tho-moi-nhat' }) }}" itemprop="url">
-                                <span itemprop="summary">⭐ Bảng giá xây nhà phần thô</span> </a>
+                                <a href="{{ path('news_show', {'slug': 'bang-gia-xay-nha-phan-tho-moi-nhat' }) }}" itemprop="url">
+                                    <span>⭐ Bảng giá xây nhà phần thô</span>
+                                </a>
                             </h6>
-                            <meta content="3/3/2025" itemprop="startDate">
-                            <meta content="☎️ Hotline 0936.40.41.39" itemprop="location">
+                            <meta content="2025-03-03T1:00-02:00" itemprop="startDate">
+                            <meta content="2026-03-03T1:00-02:00" itemprop="endDate">
+                            <meta content="https://schema.org/OnlineEventAttendanceMode" itemprop="eventAttendanceMode">
+                            <meta content="https://schema.org/EventScheduled" itemprop="eventStatus">
+                            <meta content="{{ asset('assets/images/logo.png') }}" itemprop="image">
+                            <div itemprop="location" itemscope itemtype="http://schema.org/Place">
+                                <meta content="☎️ Hotline 0936.404.139" itemprop="name">
+                                <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                    <meta content="224 Gò Dầu, Tân Quý, Tân Phú" itemprop="streetAddress">
+                                    <meta content="Ho Chi Minh" itemprop="addressLocality">
+                                    <meta content="VN" itemprop="addressRegion">
+                                    <meta content="700000" itemprop="postalCode">
+                                </div>
+                            </div>
+                            <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                <meta content="{{ path('news_show', {'slug': 'bang-gia-xay-nha-phan-tho-moi-nhat' }) }}" itemprop="url">
+                                <meta content="3200000" itemprop="price">
+                                <meta content="VND" itemprop="priceCurrency">
+                                <meta content="https://schema.org/InStock" itemprop="availability">
+                                <meta content="2025-03-03T1:00" itemprop="validFrom">
+                            </div>
+                            <div itemprop="performer" itemscope itemtype="http://schema.org/Person">
+                                <meta content="Xây Dựng Nhật Trung" itemprop="name">
+                            </div>
+                            <div itemprop="organizer" itemscope itemtype="http://schema.org/Organization">
+                                <meta content="Xây Dựng Nhật Trung" itemprop="name">
+                                <meta content="https://xaydungnhattrung.net/" itemprop="url">
+                            </div>
                         </div>
                     </div>
                 </div>
