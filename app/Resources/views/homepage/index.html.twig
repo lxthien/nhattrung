@@ -84,7 +84,55 @@
         </div>
 
         {% for blockOnHomepage in blocksOnHomepage %}
-            {% if blockOnHomepage.category.getId() != 3 and blockOnHomepage.category.getId() != 4 and blockOnHomepage.category.getId() != 2 %}
+            {% if (loop.index != 2) %}
+                {% if blockOnHomepage.category.getId() != 3 and blockOnHomepage.category.getId() != 4 and blockOnHomepage.category.getId() != 2 %}
+                    <div class="wrapper-container-item block-homepage">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 title-list-news-items">
+                                    <h1 class="text-center text-uppercase">
+                                        <span>Nhật </span> Trung <i class="fas fa-angle-right"></i> 
+                                        {{ blockOnHomepage.category.getName() }}
+                                    </h1>
+                                    <p>{{ blockOnHomepage.description }}</p>
+                                </div>
+
+                                <div class="col-md-12 list-news-items">
+                                    <div class="row">
+                                        {% for row in blockOnHomepage.posts %}
+                                            {{ include('news/components/itemsGridHomepage.html.twig') }}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="wrapper-container-item project-hot">
+                        <div class="container">
+                            <div class="row project-hot">
+                                <div class="col-md-12 title-list-news-items">
+                                    <h1 class="text-center text-uppercase">
+                                        <span>Nhật </span> Trung <i class="fas fa-angle-right"></i> 
+                                        {{ blockOnHomepage.category.getName() }}
+                                    </h1>
+                                    <p>{{ blockOnHomepage.description }}</p>
+                                </div>
+
+                                <div class="clearfix"></div>
+
+                                <div class="list-news-items">
+                                    <div class="bxslider">
+                                        {% for row in blockOnHomepage.posts %}
+                                            {{ include('news/components/itemsGridSlide.html.twig') }}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% else %}
                 <div class="wrapper-container-item block-homepage">
                     <div class="container">
                         <div class="row">
@@ -106,26 +154,13 @@
                         </div>
                     </div>
                 </div>
-            {% else %}
-                <div class="wrapper-container-item project-hot">
+                <div class="wrapper-container-item block-homepage">
                     <div class="container">
-                        <div class="row project-hot">
+                        <div class="row">
                             <div class="col-md-12 title-list-news-items">
-                                <h1 class="text-center text-uppercase">
-                                    <span>Nhật </span> Trung <i class="fas fa-angle-right"></i> 
-                                    {{ blockOnHomepage.category.getName() }}
-                                </h1>
-                                <p>{{ blockOnHomepage.description }}</p>
-                            </div>
-
-                            <div class="clearfix"></div>
-
-                            <div class="list-news-items">
-                                <div class="bxslider">
-                                    {% for row in blockOnHomepage.posts %}
-                                        {{ include('news/components/itemsGridSlide.html.twig') }}
-                                    {% endfor %}
-                                </div>
+                                <a href="{{ path('news_show', {'slug': 'dien-vien-thanh-dat-ton-gan-3-ty-dong-sua-nha' }) }}" title="Diễn viên Thành Đạt tốn gần 3 tỷ đồng sửa nhà">
+                                    <img src="https://xaydungnhattrung.net/uploads/ckfinder/userfiles/images/qc.jpg" alt="Diễn viên Thành Đạt tốn gần 3 tỷ đồng sửa nhà" />
+                                </a>
                             </div>
                         </div>
                     </div>

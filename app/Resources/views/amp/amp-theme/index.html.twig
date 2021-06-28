@@ -7,6 +7,34 @@
         <meta name="keywords" content="{{ post.getPageKeyword() }}">
         <link rel="canonical" href="{{ url('news_show', { slug: post.getUrl() }) }}">
         <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+        <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "NewsArticle",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "{{ absolute_url(path('news_show', {'slug': post.getUrl() })) }}"
+            },
+            "headline": "{{ post.getTitle() }}",
+            "datePublished": "{{ post.getCreatedAt()|date("Y-m-d h:m:s") }}",
+            "dateModified": "{{ post.getUpdatedAt()|date("Y-m-d h:m:s") }}",
+            "image": [
+                "{{ (vich_uploader_asset(post, 'imageFile') ? app.request.getUriForPath(vich_uploader_asset(post, 'imageFile')) : absolute_url(asset('assets/images/no-image.png'))) | imagine_filter('news_382_285') }}"
+            ],
+            "author": {
+                "@type": "Person",
+                "name": "{{ get_setting('siteName') }}"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "{{ get_setting('siteName') }}",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "{{ absolute_url(asset('assets/images/logo.png')) }}"
+                }
+            }
+        }
+        </script>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <style amp-boilerplate>
             {% include '@amp_theme/css/amp-boilerplate.html.twig' %}</style>
