@@ -5,7 +5,7 @@
             <div class="col-12 col-sm-3 col-md-3 col-lg-3">
                 <h3 class="text-uppercase">Nhật Trung</h3>
                 <div class="footer-text-wrap">
-                    <p>Xây Dựng Nhật Trung là công ty hoạt động trong lĩnh vực tư vấn thiết kế và thi công các công trình xây dựng nhà phố, biệt thự và sửa chữa nhà, cải tạo nhà cũ. Phạm vi hoạt động của công ty chúng tôi là trên địa bàn Thành Phố Hồ Chí Minh và các tỉnh thành lân cận: Đồng Nai, Bình Dương, Củ Chi, Long An, …</p>
+                    {{ get_setting('siteNameDescription')|raw }}
                     <br>
                     {{ get_setting('dmcaScript')|raw }}
                 </div>
@@ -15,11 +15,11 @@
                 <ul class="footer-company">
                     <li>
                         <i class="fa fa-map-marker"></i>
-                        <span>224 Gò Dầu, Phường Tân Qúy, Quận Tân Phú, TP HCM</span>
+                        <span>549/14 Tân Kỳ Tân Quý, P.Tân Quý, Q.Tân Phú, TP HCM</span>
                     </li>
                     <li>
                         <i class="fa fa-phone"></i>
-                        <span><a href="tel:0936404139">0936.404.139</a></span>
+                        <span><a href="tel:0936404139">0936.404.139</a> - Mr. Tuần</span>
                     </li>
                     <li>
                         <i class="fas fa-envelope"></i>
@@ -62,11 +62,11 @@
                 <div class="event-footer row">
                     <div class="col-12 col-sm-12 col-md-12">
                         <div class="event-footer-item" itemtype="http://schema.org/Event" itemscope="">
-                            <meta content="⭐ Bảng giá sửa nhà trọn gói" itemprop="name">
-                            <meta content="⭐ Bảng giá sửa nhà trọn gói" itemprop="description">
+                            <meta content="⭐ Sửa nhà trọn gói" itemprop="name">
+                            <meta content="⭐ Sửa nhà trọn gói" itemprop="description">
                             <h6>
                                 <a href="{{ path('news_show', {'slug': 'bang-gia-sua-chua-nha-moi-nhat' }) }}" itemprop="url">
-                                    <span>⭐ Bảng giá sửa nhà trọn gói</span>
+                                    <span>⭐ Sửa nhà trọn gói</span>
                                 </a>
                             </h6>
                             <meta content="2025-01-01T1:00-02:00" itemprop="startDate">
@@ -77,7 +77,7 @@
                             <div itemprop="location" itemscope itemtype="http://schema.org/Place">
                                 <meta content="☎️ Hotline 0936.404.139" itemprop="name">
                                 <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                                    <meta content="224 Gò Dầu, Tân Quý, Tân Phú" itemprop="streetAddress">
+                                    <meta content="549/14 Tân Kỳ Tân Quý, Tân Quý, Tân Phú" itemprop="streetAddress">
                                     <meta content="Ho Chi Minh" itemprop="addressLocality">
                                     <meta content="VN" itemprop="addressRegion">
                                     <meta content="700000" itemprop="postalCode">
@@ -99,11 +99,11 @@
                             </div>
                         </div>
                         <div class="event-footer-item" itemtype="http://schema.org/Event" itemscope="">
-                            <meta content="⭐ Bảng giá xây nhà trọn gói" itemprop="name">
-                            <meta content="⭐ Bảng giá xây nhà trọn gói" itemprop="description">
+                            <meta content="⭐ Xây nhà trọn gói" itemprop="name">
+                            <meta content="⭐ Xây nhà trọn gói" itemprop="description">
                             <h6>
                                 <a href="{{ path('news_show', {'slug': 'bang-gia-xay-nha-tron-goi-moi-nhat' }) }}" itemprop="url">
-                                    <span>⭐ Bảng giá xây nhà trọn gói</span>
+                                    <span>⭐ Xây nhà trọn gói</span>
                                 </a>
                             </h6>
                             <meta content="2025-02-02T1:00-02:00" itemprop="startDate">
@@ -114,7 +114,7 @@
                             <div itemprop="location" itemscope itemtype="http://schema.org/Place">
                                 <meta content="☎️ Hotline 0936.404.139" itemprop="name">
                                 <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                                    <meta content="224 Gò Dầu, Tân Quý, Tân Phú" itemprop="streetAddress">
+                                    <meta content="549/14 Tân Kỳ Tân Quý, Tân Quý, Tân Phú" itemprop="streetAddress">
                                     <meta content="Ho Chi Minh" itemprop="addressLocality">
                                     <meta content="VN" itemprop="addressRegion">
                                     <meta content="700000" itemprop="postalCode">
@@ -136,11 +136,11 @@
                             </div>
                         </div>
                         <div class="event-footer-item" itemtype="http://schema.org/Event" itemscope="">
-                            <meta content="⭐ Bảng giá xây nhà phần thô" itemprop="name">
-                            <meta content="⭐ Bảng giá xây nhà phần thô" itemprop="description">
+                            <meta content="⭐ Xây dựng phần thô" itemprop="name">
+                            <meta content="⭐ Xây dựng phần thô" itemprop="description">
                             <h6>
                                 <a href="{{ path('news_show', {'slug': 'bang-gia-xay-nha-phan-tho-moi-nhat' }) }}" itemprop="url">
-                                    <span>⭐ Bảng giá xây nhà phần thô</span>
+                                    <span>⭐ Xây dựng phần thô</span>
                                 </a>
                             </h6>
                             <meta content="2025-03-03T1:00-02:00" itemprop="startDate">
@@ -151,7 +151,7 @@
                             <div itemprop="location" itemscope itemtype="http://schema.org/Place">
                                 <meta content="☎️ Hotline 0936.404.139" itemprop="name">
                                 <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                                    <meta content="224 Gò Dầu, Tân Quý, Tân Phú" itemprop="streetAddress">
+                                    <meta content="549/14 Tân Kỳ Tân Quý, Tân Quý, Tân Phú" itemprop="streetAddress">
                                     <meta content="Ho Chi Minh" itemprop="addressLocality">
                                     <meta content="VN" itemprop="addressRegion">
                                     <meta content="700000" itemprop="postalCode">

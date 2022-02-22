@@ -11,8 +11,8 @@
     <meta property="og:description" content="{{ post.getPageDescription() is not null ? post.getPageDescription() : post.getDescription() }}" />
     <meta property="og:image" content="{{ vich_uploader_asset(post, 'imageFile') ? app.request.getUriForPath(vich_uploader_asset(post, 'imageFile')) : absolute_url(asset('assets/images/no-image.png')) }}" />
     {% if imageSize is not null %}
-    <meta property="og:image:width" content="{{ imageSize[0] }}" />
-    <meta property="og:image:height" content="{{ imageSize[1] }}" />
+    <meta property="og:image:width" content="{{ imageSize ? imageSize[0] : 0 }}" />
+    <meta property="og:image:height" content="{{ imageSize ? imageSize[1] : 0 }}" />
     {% endif %}
 {% endblock %}
 
@@ -79,6 +79,14 @@
                 {# Side bar #}
                 {{ include('layout/sidebar.html.twig') }}
             </div>
+
+            {{ render(controller(
+                'AppBundle:News:listNewsByCategory', { 'categoryId': 3 }
+            )) }}
+
+            {{ render(controller(
+                'AppBundle:News:listNewsByCategory', { 'categoryId': 4 }
+            )) }}
         </div>
     </div>
 {% endblock %}

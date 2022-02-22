@@ -269,6 +269,10 @@
 
                                 &:hover {
                                     transform: scale(1.4);
+
+                                    @media only screen and (max-width : 767.98px) {
+                                        transform: none;
+                                    }
                                 }
                             }
                         }
@@ -306,10 +310,12 @@
 }
 
 .title-list-news-items {
-    h1 {
+    p.p-title-list-news-items {
         font-size: 32px;
         margin: 45px 0 15px;
         color: $primaryColor;
+        width: 100%;
+        font-style: normal;
 
         @media only screen and (max-width : 768px) {
             position: relative;
@@ -374,6 +380,14 @@
             margin-top: -5px;
             margin-right: 0;
             color: $primaryColor2;
+        }
+
+        a {
+            color: #004a80;
+
+            &:hover {
+                text-decoration: none;
+            }
         }
     }
 

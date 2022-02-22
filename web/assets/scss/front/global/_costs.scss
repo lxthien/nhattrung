@@ -1,3 +1,14 @@
+.caculator-cost-construction {
+    form {
+        width: 80%;
+        margin: 0 auto;
+
+        @media only screen and (max-width : 768px) {
+            width: 100%;
+        }
+    }
+}
+
 .costs {
     .control-label {
         font-size: 16px;
@@ -7,6 +18,8 @@
         border-width: 1px;
         height: 38px;
         padding: 0px 10px;
+        border: 1px solid #cccccc;
+        box-shadow: none;
     }
 
     button {

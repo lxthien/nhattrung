@@ -1,4 +1,3 @@
-import 'eonasdan-bootstrap-datetimepicker';
 import 'typeahead.js';
 import Bloodhound from "bloodhound-js";
 import 'bootstrap-tagsinput';
@@ -8,6 +7,8 @@ import 'bootstrap-sass/assets/javascripts/bootstrap/modal.js';
 $(function() {
     // Build the slug for object entiry from the name
     initBuildSluggable();
+
+    initMakePrimaryCategory();
 
     // Init CkEditor and CKfinder
     initCkeditor();
@@ -89,21 +90,33 @@ $(function() {
         
     }
 
-    // Datetime picker initialization.
-    // See http://eonasdan.github.io/bootstrap-datetimepicker/
-    $('[data-toggle="datetimepicker"]').datetimepicker({
-        icons: {
-            time: 'fa fa-clock-o',
-            date: 'fa fa-calendar',
-            up: 'fa fa-chevron-up',
-            down: 'fa fa-chevron-down',
-            previous: 'fa fa-chevron-left',
-            next: 'fa fa-chevron-right',
-            today: 'fa fa-check-circle-o',
-            clear: 'fa fa-trash',
-            close: 'fa fa-remove'
-        }
-    });
+    function initMakePrimaryCategory() {
+        var categoryPrimaryId = $('#news_categoryPrimary').val();
+
+        $("#news_category .checkbox").each(function() {
+            var categoryId = $(this).find('input[type="checkbox"]').val();
+
+            if ($(this).find('input[type="checkbox"]').is(':checked') && categoryPrimaryId != categoryId) {
+                $(this).append('<label class="label-primary"> <input type="radio" name="categoryPrimary"></input> Chọn làm danh mục chính</label>');
+            }
+        });
+
+        $('#news_category .checkbox input[type="checkbox"]').change(function() {
+            if (!this.checked) {
+                $(this).closest('.checkbox').find('label.label-primary').remove();
+            } else {
+                $(this).parent().parent('.checkbox').append('<label class="label-primary"> <input type="radio" name="categoryPrimary"></input> Chọn làm danh mục chính</label>');
+            }
+        });
+
+        $(document).on('change', '#news_category .checkbox .label-primary input[type="radio"]', function(e) {
+            var categoryId = $(this).closest('.checkbox').find('input[type="checkbox"]').val();
+
+            if (categoryId > 0 ) {
+                $('#news_categoryPrimary').val(categoryId);
+            }
+        });
+    }
 
     // Bootstrap-tagsinput initialization
     // http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/
