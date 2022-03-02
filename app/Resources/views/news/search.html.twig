@@ -42,7 +42,11 @@
         </div>
         
         {{ render(controller(
-            'AppBundle:News:listNewsByCategory', { 'categoryId': 2 }
+            'AppBundle:News:listNewsByCategory', { 'categoryId': 3 }
+        )) }}
+
+        {{ render(controller(
+            'AppBundle:News:listNewsByCategory', { 'categoryId': 4 }
         )) }}
     </div>
 {% endblock %}
