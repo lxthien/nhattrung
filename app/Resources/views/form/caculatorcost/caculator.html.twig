@@ -102,8 +102,8 @@
                             <p><span>Tổng diện tích:</span> {{ costs.areaTotal }} m<sup>2</sup></p>
                             <p><span>{{ costs.title }}:</span> {{ costs.cost|number_format(0, '.', ',') }} <sup>đ</sup></p>
                             <p><span>Chi phí dự kiến:</span> {{ costs.costTotal|number_format(0, '.', ',') }} <sup>đ</sup></p>
-                            <p>Liên hệ hotline: <a href="tel:0936404139">0936.40.41.39</a> A Tuần để nhận tư vấn, <a href="{{ path('news_show', {'slug': 'bang-gia-xay-nha-tron-goi-moi-nhat' }) }}">báo giá xây nhà</a> miễn phí</p>
-                            <p><strong>Email:</strong> <a href="mailto:xaydungnhatthu@gmail.com">xaydungnhatthu@gmail.com</a></p>
+                            <p>Liên hệ hotline: <a href="tel:{{ get_setting('hotLine2') }}">{{ get_setting('hotLine1') }}</a> A Tuần để nhận tư vấn, <a href="{{ path('news_show', {'slug': 'bang-gia-xay-nha-tron-goi-moi-nhat' }) }}">báo giá xây nhà</a> miễn phí</p>
+                            <p><strong>Email:</strong> <a href="mailto:{{ get_setting('emailContact') }}">{{ get_setting('emailContact') }}</a></p>
                             <p><i><strong>Lưu ý: {{ costs.note|raw }}</strong></i></p>
                         </div>
                     </div>

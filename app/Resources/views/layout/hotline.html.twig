@@ -23,7 +23,7 @@
         <div class="phone-vr">
             <div class="phone-vr-circle-fill"></div>
             <div class="phone-vr-img-circle">
-                <a href="tel:0936404139" rel="nofollow noreferrer" title="Gọi chúng tôi">
+                <a href="tel:{{ get_setting('hotLine2') }}" rel="nofollow noreferrer" title="Gọi chúng tôi">
                     <img class="icon-hotline" src="{{ asset('assets/images/phone.png') }}" alt="Gọi chúng tôi" width="35" height="35">
                 </a>
             </div>
@@ -37,11 +37,11 @@
 
 <aside class="floating container hidden-sm hidden-md hidden-lg">
     <section class="row inside cover">
-        <a class="call-now col-xs-6" href="tel:0936404139" title="Hotline: 0936404139">
-            <div>
+        <a class="call-now col-xs-6" href="tel:{{ get_setting('hotLine2') }}" title="Hotline: {{ get_setting('hotLine1') }}">
+            <div id="call-now">
                 <i class="fa fa-phone-square" aria-hidden="true"></i>
-                <span>Hotline tư vấn</span>
-                <strong>0936.404.139</strong>
+                <span class="hotline-bottom">Hotline tư vấn</span>
+                <strong class="hotline-bottom">{{ get_setting('hotLine1') }}</strong>
             </div>
         </a>
         <a class="chat-us col-xs-6" href="{{ path('contact') }}">
