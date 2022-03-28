@@ -47,8 +47,10 @@
         <script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
         <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
         <script async custom-element="amp-addthis" src="https://cdn.ampproject.org/v0/amp-addthis-0.1.js"></script>
+        <script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
     </head>
     <body>
+        <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-KD4X3NM&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
         <amp-analytics type="gtag" data-credentials="include">
             <script type="application/json">
             {
@@ -99,9 +101,22 @@
         </amp-animation>
 
         <div class="wrapper-container">
+            <header role="banner">
+                <a href="{{ path('homepage') }}" class="header-link" id="top">
+                    <amp-position-observer on="enter:hideAnim.start; exit:showAnim.start" layout="nodisplay">
+                    </amp-position-observer>
+                    <amp-img
+                        alt="Xây Dựng Nhật Trung"
+                        src="{{ asset('assets/images/logo-1.png') }}"
+                        width="640"
+                        height="454"
+                        layout="responsive"
+                    >
+                    </amp-img>
+                </a>
+            </header>
+
             <nav role="navigation" id="top">
-                <amp-position-observer on="enter:hideAnim.start; exit:showAnim.start" layout="nodisplay">
-                </amp-position-observer>
                 <div id="menuToggle">
                     <input type="checkbox"/>
                     <span></span>
@@ -118,7 +133,7 @@
             <article role="article">
                 <h1>{{ post.title }}</h1>
                 <div class="article-content">
-                    {{ contentsAmp|raw }}
+                    {{ contentsAmp|replace({'xaydungnhatthu@gmail.com':'nhattrungconstruction@gmail.com'})|raw }}
                 </div>
 
                 {# List tags #}
@@ -154,7 +169,7 @@
                                 </li>
                                 <li>
                                     <i class="fa fa-phone"></i>
-                                    <span><a href="tel:{{ get_setting('hotLine2') }}">{{ get_setting('hotLine1') }}</a> - Mr. Tuần</span>
+                                    <span><a href="tel:+84{{ get_setting('hotLine1')|replace({'.': ''})|slice(1,9) }}">{{ get_setting('hotLine1') }}</a> - Mr. Tuần</span>
                                 </li>
                                 <li>
                                     <i class="fa fa-envelope"></i>
@@ -328,6 +343,7 @@
                                         src="{{ asset('assets/images/fb.png') }}"
                                         width="35"
                                         height="35"
+                                        class="hotline-facebook"
                                     >
                                     </amp-img>
                                 </a>
@@ -344,6 +360,7 @@
                                         src="{{ asset('assets/images/zalo.png') }}"
                                         width="35"
                                         height="35"
+                                        class="hotline-zalo"
                                     >
                                     </amp-img>
                                 </a>
@@ -354,12 +371,13 @@
                         <div class="phone-vr">
                             <div class="phone-vr-circle-fill"></div>
                             <div class="phone-vr-img-circle">
-                                <a href="tel:{{ get_setting('hotLine2') }}" rel="nofollow noreferrer" title="Gọi chúng tôi">
+                                <a href="tel:+84{{ get_setting('hotLine1')|replace({'.': ''})|slice(1,9) }}" rel="nofollow noreferrer" title="Gọi chúng tôi">
                                     <amp-img
                                         alt="Gọi chúng tôi ngay"
                                         src="{{ asset('assets/images/phone.png') }}"
                                         width="35"
                                         height="35"
+                                        class="hotline-sidebar"
                                     >
                                     </amp-img>
                                 </a>
@@ -372,20 +390,20 @@
                     <i class="fa fa-chevron-up"></i>
                 </button>
 
-                <aside class="floating container">
+                <aside class="floating container" amp-fx="float-in-bottom">
                     <section class="row inside cover">
-                        <a class="call-now col-xs-6" href="tel:{{ get_setting('hotLine2') }}">
+                        <a class="call-now col-xs-6" href="tel:+84{{ get_setting('hotLine1')|replace({'.': ''})|slice(1,9) }}">
                             <div>
                                 <i class="fa fa-phone-square" aria-hidden="true"></i>
-                                <span class="hotline-bottom">Hotline tư vấn</span>
+                                <span class="hotline-bottom">Mr. Tuần</span>
                                 <strong class="hotline-bottom">{{ get_setting('hotLine1') }}</strong>
                             </div>
                         </a>
-                        <a class="chat-us col-xs-6" href="{{ path('contact') }}">
+                        <a class="chat-us col-xs-6" href="tel:+84{{ get_setting('hotLine2')|replace({'.': ''})|slice(1,9) }}">
                             <div>
                                 <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                <span>Gửi yêu cầu</span>
-                                <strong>báo giá</strong>
+                                <span class="hotline-bottom">Mr. Thiện</span>
+                                <strong class="hotline-bottom">{{ get_setting('hotLine2') }}</strong>
                             </div>
                         </a>
                     </section>

@@ -78,14 +78,10 @@ class Builder implements ContainerAwareInterface
             'routeParameters' => ['level1' => 'du-an', 'level2' => 'du-an-sua-chua-nha']
         ]);
 
-        /* $menu->addChild('Tuyển dụng', [
-            'route' => 'news_show',
-            'routeParameters' => ['slug' => 'tuyen-dung']
-        ]); */
-
         $menu->addChild('Liên hệ', [
             'route' => 'contact'
-        ]);
+        ])
+        ->setLinkAttribute('class', 'menu-contact');
 
         return $menu;
     }

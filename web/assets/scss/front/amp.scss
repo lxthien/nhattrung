@@ -7,13 +7,13 @@ $chambray: #3C5A98;
 $mineShaft: #222222;
 $gallery: #ededed;
 $geyser: #DBE0E8;
-$primaryColor: #004a80;
+$primaryColor: #005d8a;
+$primaryColor2: #ffcf27;
 $killarney: #356649;
 $fadedJade: #3C746B;
 $rajah: #F5C168;
 $selectiveYellow: #FFB600;
 $supernova: #FDC502;
-$primaryColor2: #d71821;
 
 @font-face {
     font-family: "Roboto Condensed Bold";
@@ -145,20 +145,12 @@ body q {
 -----------------------------------
 */
 header {
-    background: #fff;
-    padding: 15px 0;
+    background: $white;
+    padding: 10px 0;
 
     a {
-        color: #ffb600;
-        text-transform: uppercase;
-        font-size: 20px;
-
-        &:visited {
-            color: #ffb600;
-        }
-
         amp-img {
-            width: 60%;
+            width: 50%;
             margin: 0 auto;
         }
     }
@@ -170,16 +162,16 @@ header {
 -----------------------------------
 */
 nav {
-    background-color:$primaryColor;
-    height: 65px;
+    background-color: $primaryColor;
+    height: 60px;
 }
 
 #menuToggle {
     display: flex;
     flex-direction: column;
     position: relative;
-    top: 22px;
-    padding-left: 25px;
+    top: 18px;
+    padding-left: 20px;
     z-index: 1;
     -webkit-user-select: none;
     user-select: none;
@@ -187,7 +179,6 @@ nav {
     input {
         display: flex;
         width: 40px;
-        height: 32px;
         position: absolute;
         cursor: pointer;
         opacity: 0;
@@ -200,7 +191,7 @@ nav {
         height: 3px;
         margin-bottom: 7px;
         position: relative;
-        background: #ffffff;
+        background: $primaryColor2;
         border-radius: 3px;
         z-index: 1;
         transform-origin: 5px 0px;
@@ -221,7 +212,7 @@ nav {
 #menuToggle input:checked~span {
     opacity: 1;
     transform: rotate(45deg) translate(-3px, -1px);
-    background: #ffffff;
+    background: $primaryColor2;
 }
 
 #menuToggle input:checked~span:nth-last-child(3) {
@@ -240,7 +231,7 @@ ul.navbar-nav {
     margin: -25px 0 0 -25px;
     padding: 25px;
     padding-top: 65px;
-    background-color: #0053a5;
+    background-color: $primaryColor;
     -webkit-font-smoothing: antialiased;
     transform-origin: 0% 0%;
     transform: translate(-100%, 0);
@@ -258,7 +249,7 @@ ul.navbar-nav {
         a {
             font-family: 'Roboto Condensed', sans-serif;
             text-transform: uppercase;
-            color: #ffffff;
+            color: $primaryColor2;
         }
 
         ul li {
@@ -298,12 +289,17 @@ ul.navbar-nav {
             }
 
             a {
-                color: #000;
+                color: $black;
             }
         }
     }
 }
 
+/*
+-----------------------------------
+    Article
+-----------------------------------
+*/
 article {
     h1 {
         font-size: 32px;
@@ -385,17 +381,18 @@ article {
                 a {
                     display: block;
                     float: left;
-                    border: 1px solid $gallery;
+                    border: 1px solid $primaryColor;
                     margin-left: 4px;
                     line-height: 15px;
                     padding: 5px 8px;
                     height: 25px;
+                    color: $black;
     
                     &:hover {
                         text-decoration: none;
                         border: 1px solid $primaryColor;
                         background: $primaryColor;
-                        color: $white;
+                        color: $black;
                     }
                 }
             }
@@ -517,10 +514,15 @@ article {
     }
 }
 
+/*
+-----------------------------------
+    Footer
+-----------------------------------
+*/
 footer {
     position: relative;
-    border-top: 5px solid #004a80;
-    background-color: #fff;
+    border-top: 5px solid $primaryColor;
+    background-color: $white;
     padding-bottom: 68px;
 
     .footer-top {
@@ -595,12 +597,12 @@ footer {
         li {
             list-style-type: none;
             display: inline-block;
-            border: 1px solid #fdc502;
+            border: 1px solid $primaryColor;
             margin: 0 0 8px 0;
             padding: 0 8px;
     
             a {
-                color: #000;
+                color: $black;
                 font-size: 15px;
             }
         }
@@ -622,7 +624,7 @@ footer {
         right: 25px;
         width: 35px;
         height: 35px;
-        background-color: #004a80;
+        background-color: $primaryColor;
         z-index: 100;
         border: none;
         padding: 0;
@@ -634,7 +636,7 @@ footer {
     
         i {
             position: relative;
-            color: #fff;
+            color: $primaryColor2;
             font-size: 20px;
             display: block;
             text-align: center;
@@ -644,6 +646,7 @@ footer {
     }
 
     .floating {
+        overflow: hidden;
         position: fixed;
         bottom: 0;
         left: 0;
@@ -657,7 +660,7 @@ footer {
                 float: left;
                 border-right: 1px dotted $mercury;
                 vertical-align: middle;
-                color: $white;
+                color: $primaryColor2;
                 text-align: center;
                 padding: 10px 0;
                 position: relative;
@@ -692,6 +695,11 @@ footer {
     }
 }
 
+/*
+-----------------------------------
+    Hotline icon
+-----------------------------------
+*/
 #button-contact-vr {
     position: fixed;
     bottom: 40%;
@@ -727,7 +735,6 @@ footer {
     }
 }
 
-/*phone*/
 .phone-vr-circle-fill {
     width: 55px;
     height: 55px;
@@ -796,7 +803,8 @@ footer {
 }
 
 .phone-bar a:hover {
-    opacity: 0.8;color: #fff;
+    opacity: 0.8;
+    color: $white;
 }
 
 @media(max-width: 736px){
