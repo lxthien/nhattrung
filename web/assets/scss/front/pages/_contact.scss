@@ -25,11 +25,17 @@
 
     #form {
         .form-group {
+            label.control-label {
+                font-weight: normal;
+            }
+
             .form-control, input {
                 border-width: 1px;
                 height: 40px;
                 padding: 5px 15px;
                 width: 350px;
+                box-shadow: none;
+                border-radius: 0px;
 
                 @media only screen and (max-width: 767.98px) {
                     width: 100%;
@@ -37,7 +43,7 @@
             }
 
             textarea.form-control {
-                height: 100px;
+                height: 150px;
                 width: 500px;
 
                 @media only screen and (max-width: 767.98px) {
@@ -49,6 +55,8 @@
                 background: $primaryColor;
                 border-width: 0px;
                 width: 90px;
+                text-transform: uppercase;
+                color: $primaryColor2;
             }
         }
     }

@@ -29,8 +29,8 @@
                 .navbar-brand {
                     padding: 5px 0;
                     height: auto;
-                    width: 85%;
-                    float: right;
+                    width: 80%;
+                    float: left;
                     text-align: center;
 
                     @media only screen and (max-width : 768px) {
@@ -47,13 +47,17 @@
                 }
     
                 .navbar-toggle {
-                    border-color: $white;
+                    border-color: $primaryColor2;
                     float: left;
                     margin-right: 0px;
                     padding: 8px 10px;
+
+                    &:focus, &:hover {
+                        background-color: transparent;
+                    }
     
                     .icon-bar {
-                        background-color: $white;
+                        background-color: $primaryColor2;
                     }
                 }
             }
@@ -112,8 +116,8 @@
                         font-size: 16px;
                         text-transform: uppercase;
                         font-family: $robotoCondesed;
-                        color: $white;
-                        text-shadow: 0.2px 0.2px 0.2px $white;
+                        color: $primaryColor2;
+                        text-shadow: 0.2px 0.2px 0.2px $primaryColor2;
 
                         &:focus, &:hover {
                             background: transparent;
@@ -123,8 +127,8 @@
                             padding: 10px;
                             font-size: 15px;
                             border-bottom: 1px dotted $geyser;
-                            color: $white;
-                            text-shadow: 0.2px 0.2px 0.2px $white;
+                            color: $primaryColor2;
+                            text-shadow: 0.2px 0.2px 0.2px $primaryColor2;
                         }
 
                         i {
@@ -175,10 +179,6 @@
     
                                 a {
                                     padding: 10px 0;
-    
-                                    &:focus, &:hover {
-                                        
-                                    }
                                 }
                             }
                         }

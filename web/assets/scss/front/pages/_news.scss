@@ -497,15 +497,22 @@
 
     #form-comment {
         .form-group {
+            label.control-label {
+                font-weight: normal;
+            }
+
             .form-control,
             input {
                 border-width: 1px;
                 height: 40px;
                 padding: 5px 15px;
+                box-shadow: none;
+                border-radius: 0px;
 
                 &.error {
                     border: 1px solid $red;
                     padding: 5px 15px;
+                    margin-bottom: 0;
                 }
             }
 
@@ -518,7 +525,7 @@
             }
 
             textarea.form-control {
-                height: 100px;
+                height: 150px;
                 width: 500px;
 
                 @media only screen and (max-width: 767.98px) {
@@ -528,6 +535,7 @@
 
             label.error {
                 display: none !important;
+                margin-bottom: 0;
             }
 
             .btn-primary {
