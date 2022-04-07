@@ -618,7 +618,7 @@ class NewsController extends Controller
         $query = $this->getDoctrine()
             ->getRepository(News::class)
             ->createQueryBuilder('p')
-            ->where('p.title LIKE :q')
+            ->where('p.title LIKE :q OR p.contents LIKE :q')
             ->andWhere('p.enable = :enable')
             ->andWhere('p.postType = :postType')
             ->setParameter('q', '%'.$request->query->get('q').'%')
