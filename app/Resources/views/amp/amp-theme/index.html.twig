@@ -50,19 +50,53 @@
         <script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
     </head>
     <body>
-        <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-KD4X3NM&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
-        <amp-analytics type="gtag" data-credentials="include">
-            <script type="application/json">
-            {
-                "vars" : {
-                    "gtag_id": "UA-104146122-1",
-                    "config" : {
-                        "UA-104146122-1": { "groups": "default" }
+        {% if get_setting('ampGTM') is not null %}
+            <!-- Google Tag Manager -->
+            <amp-analytics config="https://www.googletagmanager.com/amp.json?id={{ get_setting('ampGTM') }}&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
+        {% endif %}
+        {% if get_setting('ga4MeasurementID') is not null %}
+            <amp-analytics type="googleanalytics" config="{{ absolute_url(asset('ga4.json')) }}" data-credentials="include">
+                <script type="application/json">
+                {
+                    "vars": {
+                        "GA4_MEASUREMENT_ID": "{{ get_setting('ga4MeasurementID') }}",
+                        "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                        "DEFAULT_PAGEVIEW_ENABLED": true,
+                        "GOOGLE_CONSENT_ENABLED": false,
+                        "WEBVITALS_TRACKING": false,
+                        "PERFORMANCE_TIMING_TRACKING": false,
+                        "SEND_DOUBLECLICK_BEACON": false
+                    },
+                    "triggers": {
+                        "zalo": {
+                            "on": "click",
+                            "selector": ".hotline-zalo",
+                            "request": "ga4Event",
+                            "vars": {
+                                "ga4_event_name": "amp-zalo"
+                            }
+                        },
+                        "facebook": {
+                            "on": "click",
+                            "selector": ".hotline-facebook",
+                            "request": "ga4Event",
+                            "vars": {
+                                "ga4_event_name": "amp-facebook"
+                            }
+                        },
+                        "hotline": {
+                            "on": "click",
+                            "selector": ".hotline-sidebar",
+                            "request": "ga4Event",
+                            "vars": {
+                                "ga4_event_name": "amp-hotline"
+                            }
+                        }
                     }
                 }
-            }
-            </script>
-        </amp-analytics>
+                </script>
+            </amp-analytics>
+        {% endif %}
         <amp-animation id="showAnim" layout="nodisplay">
             <script type="application/json">
                 {
