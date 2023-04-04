@@ -10,6 +10,25 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="item active">
+                <picture>
+                    <source
+                        srcset="{{ asset('assets/images/banner/cong-ty-xay-dung-uy-tin.jpg') | imagine_filter('banner_768_400') }}"
+                        media="(max-width: 799px)" />
+                    <source
+                        srcset="{{ asset('assets/images/banner/cong-ty-xay-dung-uy-tin.jpg') | imagine_filter('banner_1500_500') }}"
+                        media="(min-width: 800px)" />
+                    <img
+                        src="{{ asset('assets/images/banner/cong-ty-xay-dung-uy-tin.jpg') | imagine_filter('banner_1500_500') }}"
+                        alt="Công ty xây dựng uy tín, chuyên nghiệp" />
+                </picture>
+                <div class="container">
+                    <div class="carousel-caption text-left">
+                        <h2 class="text-uppercase">Xây Dựng Nhật Trung</h2>
+                        <p>Công ty xây dựng uy tín, chuyên nghiệp</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
                 <a href="{{ path('news_show', {'slug': 'sua-chua-nha-cai-tao-nha-cu-tai-1419-le-van-luong-nha-be-hcm' }) }}">
                     <picture>
                         <source
