@@ -618,12 +618,13 @@ class NewsController extends Controller
         $query = $this->getDoctrine()
             ->getRepository(News::class)
             ->createQueryBuilder('p')
-            ->where('p.title LIKE :q OR p.contents LIKE :q')
+            ->where('p.title LIKE :q OR p.description LIKE :q')
             ->andWhere('p.enable = :enable')
             ->andWhere('p.postType = :postType')
             ->setParameter('q', '%'.$request->query->get('q').'%')
             ->setParameter('enable', 1)
             ->setParameter('postType', 'post')
+            ->orderBy('p.createdAt', 'DESC')
             ->getQuery();
         
         $paginator  = $this->get('knp_paginator');
