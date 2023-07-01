@@ -26,21 +26,17 @@ use blackknight467\StarRatingBundle\Form\RatingType as RatingType;
 use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 use EWZ\Bundle\RecaptchaBundle\Validator\Constraints\IsTrue as RecaptchaTrue;
 
+use AppBundle\Utils\ConvertImages;
+
 class NewsController extends Controller
 {
-    /**
-     * @var UploaderHelper
-     */
     private $helper;
+    private $convertImages;
 
-    /**
-     * Constructs a new instance of UploaderExtension.
-     *
-     * @param UploaderHelper $helper
-     */
-    public function __construct(UploaderHelper $helper)
+    public function __construct(UploaderHelper $helper, ConvertImages $convertImages)
     {
         $this->helper = $helper;
+        $this->convertImages = $convertImages;
     }
 
     /**
@@ -295,6 +291,12 @@ class NewsController extends Controller
 
             list($width, $height) = @getimagesize(substr($src, 1));
 
+            if ($this->convertImages->webpFileExists($src, '')) {
+                $src = $src . '.webp';
+            } else {
+                $src = !is_bool($this->convertImages->webpConvert2($src, '')) ? $this->convertImages->webpConvert2($src, '') : $src;
+            }
+
             $img->setAttribute('data-src', $src);
             $img->setAttribute('alt', $alt);
             $img->setAttribute('class', 'lazyload');
@@ -405,8 +407,9 @@ class NewsController extends Controller
 
     private function amploadContent($post) {
         $html = $post->getContents();
+        
+        # Code replace img tag to amp-img
         preg_match_all("#<img(.*?)\\/?>#", $html, $img_matches);
-
         foreach ($img_matches[1] as $key => $img_tag) {
             preg_match_all('/(alt|src|width|height)=["\'](.*?)["\']/i', $img_tag, $attribute_matches);
             $attributes = array_combine($attribute_matches[1], $attribute_matches[2]);
@@ -430,6 +433,30 @@ class NewsController extends Controller
 
             $html = str_replace($img_matches[0][$key], $amp_tag, $html);
         }
+
+        # Code replace iframe tag to amp-youtube
+        preg_match_all("#<iframe(.*?)\\/?>#", $html, $iframe_match);
+        foreach ($iframe_match[1] as $key => $iframe_tag) {
+            preg_match_all('/(alt|src|width|height)=["\'](.*?)["\']/i', $iframe_tag, $attribute_matches);
+            $attributes = array_combine($attribute_matches[1], $attribute_matches[2]);
+
+            if (array_key_exists('src', $attributes)) {
+                $iframeSrc = $attributes['src'];
+                preg_match('/embed\/([\w+\-+]+)[\"\?]/', $iframeSrc, $iframeMatch);
+            }
+
+            $iframe_tag = '<amp-youtube ';
+            $iframe_tag .= 'width="480"';
+            $iframe_tag .= 'height="270"';
+            $iframe_tag .= 'layout="responsive"';
+            $iframe_tag .= 'data-videoid="'.$iframeMatch[1].'"';
+            $iframe_tag .= '>';
+            $iframe_tag .= '</amp-youtube>';
+
+            $html = str_replace($iframe_match[0][$key], $iframe_tag, $html);
+        }
+
+        return html_entity_decode($html);
 
         return html_entity_decode($html);
     }
@@ -605,9 +632,7 @@ class NewsController extends Controller
         $form->handleRequest($request);
         
         if (!$form->isSubmitted() && empty($request->query->get('q'))) {
-            return $this->render('news/formSearch.html.twig', [
-                'form' => $form->createView(),
-            ]);
+            return $this->redirectToRoute('homepage', [], 301);
         }
 
         $q = $form->getData()['q'];

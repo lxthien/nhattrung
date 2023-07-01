@@ -10,15 +10,26 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="item active">
+                {% set imagePath = asset('/assets/images/banner/cong-ty-xay-dung-uy-tin.jpg') %}
+                {% set imagePathFilter = asset('/assets/images/banner/cong-ty-xay-dung-uy-tin.jpg') | imagine_filter('banner_1500_500') %}
+                {% set imagePathFilterMobile = asset('/assets/images/banner/cong-ty-xay-dung-uy-tin.jpg') | imagine_filter('banner_768_400') %}
+                        
+                {% if convert_images.fileExists(imagePath) == false %}
+                    {% set imagePath = imagePath | imagine_filter('banner_1500_500') %}
+                    {% set imagePathMobile = imagePath | imagine_filter('banner_768_400') %}
+                {% else %}
+                    {% set imagePath = convert_images.webpConvert(imagePathFilter, '', true) %}
+                    {% set imagePathMobile = convert_images.webpConvert(imagePathFilterMobile, '', true) %}
+                {% endif %}
                 <picture>
                     <source
-                        srcset="{{ asset('assets/images/banner/cong-ty-xay-dung-uy-tin.jpg') | imagine_filter('banner_768_400') }}"
+                        srcset="{{ imagePathMobile != false ? absolute_url(imagePathMobile) : absolute_url(imagePathFilterMobile) }}"
                         media="(max-width: 799px)" />
                     <source
-                        srcset="{{ asset('assets/images/banner/cong-ty-xay-dung-uy-tin.jpg') | imagine_filter('banner_1500_500') }}"
+                        srcset="{{ imagePath != false ? absolute_url(imagePath) : absolute_url(imagePath) }}"
                         media="(min-width: 800px)" />
                     <img
-                        src="{{ asset('assets/images/banner/cong-ty-xay-dung-uy-tin.jpg') | imagine_filter('banner_1500_500') }}"
+                        src="{{ imagePath != false ? absolute_url(imagePath) : absolute_url(imagePath) }}"
                         alt="Công ty xây dựng uy tín, chuyên nghiệp" />
                 </picture>
                 <div class="container">
@@ -29,16 +40,27 @@
                 </div>
             </div>
             <div class="item">
+                {% set imagePath = asset('/assets/images/banner/sua-nha-dien-vien-thanh-dat.jpg') %}
+                {% set imagePathFilter = asset('/assets/images/banner/sua-nha-dien-vien-thanh-dat.jpg') | imagine_filter('banner_1500_500') %}
+                {% set imagePathFilterMobile = asset('/assets/images/banner/sua-nha-dien-vien-thanh-dat.jpg') | imagine_filter('banner_768_400') %}
+                        
+                {% if convert_images.fileExists(imagePath) == false %}
+                    {% set imagePath = imagePath | imagine_filter('banner_1500_500') %}
+                    {% set imagePathMobile = imagePath | imagine_filter('banner_768_400') %}
+                {% else %}
+                    {% set imagePath = convert_images.webpConvert(imagePathFilter, '', true) %}
+                    {% set imagePathMobile = convert_images.webpConvert(imagePathFilterMobile, '', true) %}
+                {% endif %}
                 <a href="{{ path('news_show', {'slug': 'sua-chua-nha-cai-tao-nha-cu-tai-1419-le-van-luong-nha-be-hcm' }) }}">
                     <picture>
                         <source
-                            srcset="{{ asset('assets/images/banner/sua-nha-dien-vien-thanh-dat.jpg') | imagine_filter('banner_768_400') }}"
+                            srcset="{{ imagePathMobile != false ? absolute_url(imagePathMobile) : absolute_url(imagePathFilterMobile) }}"
                             media="(max-width: 799px)" />
                         <source
-                            srcset="{{ asset('assets/images/banner/sua-nha-dien-vien-thanh-dat.jpg') | imagine_filter('banner_1500_500') }}"
+                            srcset="{{ imagePath != false ? absolute_url(imagePath) : absolute_url(imagePath) }}"
                             media="(min-width: 800px)" />
                         <img
-                            src="{{ asset('assets/images/banner/sua-nha-dien-vien-thanh-dat.jpg') | imagine_filter('banner_1500_500') }}"
+                            src="{{ imagePath != false ? absolute_url(imagePath) : absolute_url(imagePath) }}"
                             alt="Sửa nhà diễn viên Thành Đạt" />
                     </picture>
                 </a>
@@ -50,16 +72,27 @@
                 </div>
             </div>
             <div class="item">
+                {% set imagePath = asset('/assets/images/banner/xay-nha-tron-goi-binh-duong.jpg') %}
+                {% set imagePathFilter = asset('/assets/images/banner/xay-nha-tron-goi-binh-duong.jpg') | imagine_filter('banner_1500_500') %}
+                {% set imagePathFilterMobile = asset('/assets/images/banner/xay-nha-tron-goi-binh-duong.jpg') | imagine_filter('banner_768_400') %}
+                        
+                {% if convert_images.fileExists(imagePath) == false %}
+                    {% set imagePath = imagePath | imagine_filter('banner_1500_500') %}
+                    {% set imagePathMobile = imagePath | imagine_filter('banner_768_400') %}
+                {% else %}
+                    {% set imagePath = convert_images.webpConvert(imagePathFilter, '', true) %}
+                    {% set imagePathMobile = convert_images.webpConvert(imagePathFilterMobile, '', true) %}
+                {% endif %}
                 <a href="{{ path('news_show', {'slug': 'du-an-xay-nha-tron-goi-anh-xang-binh-duong' }) }}">
                     <picture>
                         <source
-                            srcset="{{ asset('assets/images/banner/xay-nha-tron-goi-binh-duong.jpg') | imagine_filter('banner_768_400') }}"
+                            srcset="{{ imagePathMobile != false ? absolute_url(imagePathMobile) : absolute_url(imagePathFilterMobile) }}"
                             media="(max-width: 799px)" />
                         <source
-                            srcset="{{ asset('assets/images/banner/xay-nha-tron-goi-binh-duong.jpg') | imagine_filter('banner_1500_500') }}"
+                            srcset="{{ imagePath != false ? absolute_url(imagePath) : absolute_url(imagePath) }}"
                             media="(min-width: 800px)" />
                         <img
-                            src="{{ asset('assets/images/banner/xay-nha-tron-goi-binh-duong.jpg') | imagine_filter('banner_1500_500') }}"
+                            src="{{ imagePath != false ? absolute_url(imagePath) : absolute_url(imagePath) }}"
                             alt="Xây nhà trọn gói tại Bình Dương" />
                     </picture>
                 </a>
@@ -71,16 +104,27 @@
                 </div>
             </div>
             <div class="item">
+                {% set imagePath = asset('/assets/images/banner/banner-thi-cong-phan-tho.jpg') %}
+                {% set imagePathFilter = asset('/assets/images/banner/banner-thi-cong-phan-tho.jpg') | imagine_filter('banner_1500_500') %}
+                {% set imagePathFilterMobile = asset('/assets/images/banner/banner-thi-cong-phan-tho.jpg') | imagine_filter('banner_768_400') %}
+                        
+                {% if convert_images.fileExists(imagePath) == false %}
+                    {% set imagePath = imagePath | imagine_filter('banner_1500_500') %}
+                    {% set imagePathMobile = imagePath | imagine_filter('banner_768_400') %}
+                {% else %}
+                    {% set imagePath = convert_images.webpConvert(imagePathFilter, '', true) %}
+                    {% set imagePathMobile = convert_images.webpConvert(imagePathFilterMobile, '', true) %}
+                {% endif %}
                 <a href="{{ path('news_show', {'slug': 'bang-gia-xay-nha-tron-goi-moi-nhat' }) }}">
                     <picture>
                         <source
-                            srcset="{{ asset('assets/images/banner/banner-thi-cong-phan-tho.jpg') | imagine_filter('banner_768_400') }}"
+                            srcset="{{ imagePathMobile != false ? absolute_url(imagePathMobile) : absolute_url(imagePathFilterMobile) }}"
                             media="(max-width: 799px)" />
                         <source
-                            srcset="{{ asset('assets/images/banner/banner-thi-cong-phan-tho.jpg') | imagine_filter('banner_1500_500') }}"
+                            srcset="{{ imagePath != false ? absolute_url(imagePath) : absolute_url(imagePath) }}"
                             media="(min-width: 800px)" />
                         <img
-                            src="{{ asset('assets/images/banner/banner-thi-cong-phan-tho.jpg') | imagine_filter('banner_1500_500') }}"
+                            src="{{ imagePath != false ? absolute_url(imagePath) : absolute_url(imagePath) }}"
                             alt="Xây nhà trọn gói Hương Lộ 3, TP HCM" />
                     </picture>
                 </a>
@@ -92,16 +136,27 @@
                 </div>
             </div>
             <div class="item">
+                {% set imagePath = asset('/assets/images/banner/banner-xay-nha-phan-tho.jpg') %}
+                {% set imagePathFilter = asset('/assets/images/banner/banner-xay-nha-phan-tho.jpg') | imagine_filter('banner_1500_500') %}
+                {% set imagePathFilterMobile = asset('/assets/images/banner/banner-xay-nha-phan-tho.jpg') | imagine_filter('banner_768_400') %}
+                        
+                {% if convert_images.fileExists(imagePath) == false %}
+                    {% set imagePath = imagePath | imagine_filter('banner_1500_500') %}
+                    {% set imagePathMobile = imagePath | imagine_filter('banner_768_400') %}
+                {% else %}
+                    {% set imagePath = convert_images.webpConvert(imagePathFilter, '', true) %}
+                    {% set imagePathMobile = convert_images.webpConvert(imagePathFilterMobile, '', true) %}
+                {% endif %}
                 <a href="{{ path('news_show', {'slug': 'bang-gia-xay-nha-phan-tho-moi-nhat' }) }}">
                     <picture>
                         <source
-                            srcset="{{ asset('assets/images/banner/banner-xay-nha-phan-tho.jpg') | imagine_filter('banner_768_400') }}"
+                            srcset="{{ imagePathMobile != false ? absolute_url(imagePathMobile) : absolute_url(imagePathFilterMobile) }}"
                             media="(max-width: 799px)" />
                         <source
-                            srcset="{{ asset('assets/images/banner/banner-xay-nha-phan-tho.jpg') | imagine_filter('banner_1500_500') }}"
+                            srcset="{{ imagePath != false ? absolute_url(imagePath) : absolute_url(imagePath) }}"
                             media="(min-width: 800px)" />
                         <img
-                            src="{{ asset('assets/images/banner/banner-xay-nha-phan-tho.jpg') | imagine_filter('banner_1500_500') }}"
+                            src="{{ imagePath != false ? absolute_url(imagePath) : absolute_url(imagePath) }}"
                             alt="Thi công xây nhà phần thô" />
                     </picture>
                 </a>
@@ -113,16 +168,27 @@
                 </div>
             </div>
             <div class="item">
+                {% set imagePath = asset('/assets/images/banner/xay-dung-nhat-trung.jpg') %}
+                {% set imagePathFilter = asset('/assets/images/banner/xay-dung-nhat-trung.jpg') | imagine_filter('banner_1500_500') %}
+                {% set imagePathFilterMobile = asset('/assets/images/banner/xay-dung-nhat-trung.jpg') | imagine_filter('banner_768_400') %}
+                        
+                {% if convert_images.fileExists(imagePath) == false %}
+                    {% set imagePath = imagePath | imagine_filter('banner_1500_500') %}
+                    {% set imagePathMobile = imagePath | imagine_filter('banner_768_400') %}
+                {% else %}
+                    {% set imagePath = convert_images.webpConvert(imagePathFilter, '', true) %}
+                    {% set imagePathMobile = convert_images.webpConvert(imagePathFilterMobile, '', true) %}
+                {% endif %}
                 <a href="{{ path('homepage') }}">
                     <picture>
                         <source
-                            srcset="{{ asset('assets/images/banner/xay-dung-nhat-trung.jpg') | imagine_filter('banner_768_400') }}"
+                            srcset="{{ imagePathMobile != false ? absolute_url(imagePathMobile) : absolute_url(imagePathFilterMobile) }}"
                             media="(max-width: 799px)" />
                         <source
-                            srcset="{{ asset('assets/images/banner/xay-dung-nhat-trung.jpg') | imagine_filter('banner_1500_500') }}"
+                            srcset="{{ imagePath != false ? absolute_url(imagePath) : absolute_url(imagePath) }}"
                             media="(min-width: 800px)" />
                         <img
-                            src="{{ asset('assets/images/banner/xay-dung-nhat-trung.jpg') | imagine_filter('banner_1500_500') }}"
+                            src="{{ imagePath != false ? absolute_url(imagePath) : absolute_url(imagePath) }}"
                             alt="Xây Dựng Nhật Trung" />
                     </picture>
                 </a>
