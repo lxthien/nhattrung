@@ -105,6 +105,10 @@
         <!-- End Google Tag Manager -->
     </head>
     <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WFS2RDM"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
         <div class="container-fluid wrapper">
             {{ include('layout/header.html.twig') }}
             {{ include('layout/menu.html.twig') }}
@@ -116,11 +120,6 @@
             {{ include('layout/footer_UI.html.twig') }}
 
             {{ get_setting('facebookMessenger')|raw }}
-
-            <!-- Google Tag Manager (noscript) -->
-            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WFS2RDM"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-            <!-- End Google Tag Manager (noscript) -->
         </div>
     </body>
 </html>
