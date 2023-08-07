@@ -91,10 +91,9 @@
 
         {{ get_setting('googleAnalytic')|raw }}
 
-        <!-- Custom css -->
-        <style type="text/css">
-            {{ source('@web/css/app.css', ignore_missing = true) }}
-        </style>
+        <script src="https://kit.fontawesome.com/3253c6c137.js" crossorigin="anonymous"></script>
+        <link href="{{ asset('build/css/app.css') }}" rel="preload stylesheet" as="style" onload="this.rel='stylesheet'" >
+        <noscript><link rel="stylesheet" href="{{ asset('build/css/app.css') }}" ></noscript>
 
         <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
