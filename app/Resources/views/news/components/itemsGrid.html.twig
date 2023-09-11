@@ -14,17 +14,19 @@
                 class="mr-3 img-thumbnail lazyload"
                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                 data-src="{{ imagePath != false ? asset(imagePath) : asset(imagePathFilter) }}"
-                alt="{{row.getTitle()}}" />
+                alt="{{row.getTitle()}}"
+                width="293"
+                height="220" />
             <a title="{{ row.getTitle() }}" href="{{ path('news_show', {'slug': row.getUrl() }) }}">
                 <i class="fa fa-link"></i>
             </a>
         </div>
         <div class="media-body">
-            <h5 class="mt-0 mb-1">
+            <h2>
                 <a title="{{ row.getTitle() }}" href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
                     <span>{{ row.getTitle() }}</span>
                 </a>
-            </h5>
+            </h2>
             <p>{{ row.getDescription() }}</p>
         </div>
     </div>

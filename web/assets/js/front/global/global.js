@@ -89,20 +89,23 @@ function initFixedMenu() {
 function initFixedSidebar() {
     $(window).scroll(function() {
         var $sidebar = $("#sidebar .sidebar"),
-            $pageDetail = $('.page-detail'),
+            $pageDetail = $('.page-detail-container'),
             scrollTop = $(this).scrollTop(),
             pageDetailHeight =  $pageDetail.outerHeight(),
             sidebarHeight = $sidebar.height(),
             positionFixedMax = pageDetailHeight - sidebarHeight,
-            positionFixed = scrollTop < 65 ? 65 : positionFixedMax > scrollTop ? 65 : positionFixedMax - scrollTop + 65 ;
+            positionFixed = scrollTop < 65 ? 65 : positionFixedMax > scrollTop ? 65 : positionFixedMax - scrollTop + 160 ;
         
-        if (scrollTop > 160) {
-            $sidebar.css({
-                'top': positionFixed,
-                'position': 'fixed'
-            });
-        } else {
-            $sidebar.removeAttr("style");
+        if (pageDetailHeight > sidebarHeight) {
+            if (scrollTop > 160) {
+                $sidebar.css({
+                    'top': positionFixed,
+                    'position': 'fixed',
+                    'width': $sidebar.width()
+                });
+            } else {
+                $sidebar.removeAttr("style");
+            }
         }
     });
 }
@@ -181,11 +184,11 @@ function initFancybox() {
 exports.init = function () {
     initSearchBox();
     initProjectHotSlider();
-    initNewsSlider();
+    //initNewsSlider();
     initProtectedContent();
     initGoToTop();
     initFixedMenu();
-    //initFixedSidebar();
+    initFixedSidebar();
     initCostConstruction();
     initFancybox();
 };
