@@ -3,5 +3,7 @@ User-agent: *
 Disallow: /admin
 Disallow: /wp-content
 Disallow: /wp-json
+Disallow: /tag/
+Disallow: /search?q=*
 
 Sitemap: https://xaydungnhattrung.net/sitemap.xml
