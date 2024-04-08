@@ -408,7 +408,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
 
-    & > h4 {
+    & > .title-list-comments {
         font-size: 26px;
         position: relative;
         border-bottom: 3px solid $primaryColor;
@@ -481,6 +481,7 @@
     .comment-reply-title {
         position: relative;
         border-bottom: 3px solid $primaryColor;
+        font-size: 26px;
 
         &:before {
             content: "";

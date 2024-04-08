@@ -31,7 +31,7 @@
                                 </a>
                             {% endif %}
                         </div>
-                        <h2>
+                        <h4>
                         {% if category is defined %}
                             <a class="related-title" href="{{ path('news_show', {'slug': row.getUrl(), 'category': category.getUrl() }) }}" title="{{ row.getTitle() }}">
                                 <span>{{ row.getTitle() }}</span>
@@ -41,7 +41,7 @@
                                 <span>{{ row.getTitle() }}</span>
                             </a>
                         {% endif %}
-                        </h2>
+                        </h4>
                     </div>
                 </div>
             {% endfor %}

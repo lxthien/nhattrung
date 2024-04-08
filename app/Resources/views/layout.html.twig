@@ -89,6 +89,18 @@
         {% endblock %}
 
         {% block structuredWebSite %}
+            <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "WebSite",
+                "url": "https://xaydungnhattrung.net/",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://xaydungnhattrung.net/search?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                }
+            }
+            </script>
         {% endblock %}
 
         {{ get_setting('googleAnalytic')|raw }}
