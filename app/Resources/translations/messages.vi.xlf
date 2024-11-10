@@ -559,7 +559,7 @@
             </trans-unit>
             <trans-unit id="comment.thank_for_your_comment">
                 <source>comment.thank_for_your_comment</source>
-                <target>Cảm ơn ý kiến của bạn. Chúng tôi sẽ xem xét trước khi hiển thị bình luận của bạn trên trang này</target>
+                <target>Chúng tôi đã nhận được thông tin của Quý khách. Công ty sẽ cho người kiểm tra và liên hệ lại Quý khách trong thời gian sớm nhất!</target>
             </trans-unit>
 
             <trans-unit id="label.send">

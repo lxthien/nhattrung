@@ -103,6 +103,14 @@
 /* Post detail
 ------------------------------------------------------------------------- */
 .wrapper-container-item-detail {
+    .page-1-column {
+        width: 980px;
+
+        @media only screen and (max-width : 768px) {
+            width: auto;
+        }
+    }
+
     .wrapper-container {
         background: $white;
 

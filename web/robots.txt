@@ -4,6 +4,8 @@ Disallow: /admin
 Disallow: /wp-content
 Disallow: /wp-json
 Disallow: /tag/
+Disallow: /amp/
 Disallow: /search?q=*
 
-Sitemap: https://xaydungnhattrung.net/sitemap.xml
+Sitemap: https://xaydungnhattrung.net/sitemap.
+Sitemap: https://xaydungnhattrung.net/images_sitemap.xml

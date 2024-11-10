@@ -1,13 +1,18 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %} {{ category.getPageTitle() is not null ? category.getPageTitle() : category.getName() ~ ' - Trang ' ~ pagination.currentPageNumber }} {% endblock %}
-{% block description %} {{ category.getPageDescription() }} {% endblock %}
-{% block keyword %} {{ category.getPageKeyword() }} {% endblock %}
+{% block stylesheets %}
+    <link href="{{ absolute_url(asset('build/css/list.css')) }}" rel="preload stylesheet" as="style" onload="this.rel='stylesheet'" >
+    <noscript><link rel="stylesheet" href="{{ absolute_url(asset('build/css/list.css')) }}" ></noscript>
+{% endblock %}
+
+{% block title %}{{ user.getName() ~ ' - Xây Dựng Kim Anh' ~ (pagination.currentPageNumber > 1 ? ' - Trang ' ~ pagination.currentPageNumber : '') }}{% endblock %}
+{% block description %}{{ 'Danh sách các bài blog chuyên về lĩnh vực Xây Dựng, giúp bạn có thêm kỹ năng về xây dựng thành công.' ~ (pagination.currentPageNumber > 1 ? ' - Trang ' ~ pagination.currentPageNumber : '') }}{% endblock %}
+{% block keyword %}{{ '' }}{% endblock %}
 
 {% block structuredOpenGraph %}
     <meta property="og:type" content="object" />
-    <meta property="og:title" content="{{ category.getPageTitle() is not null ? category.getPageTitle() : category.getName() ~ ' - Trang ' ~ pagination.currentPageNumber }}" />
-    <meta property="og:description" content="{{ category.getPageDescription() }}" />
+    <meta property="og:title" content="{{ user.getName() ~ ' - Xây Dựng Kim Anh' ~ (pagination.currentPageNumber > 1 ? ' - Trang ' ~ pagination.currentPageNumber : '') }}" />
+    <meta property="og:description" content="{{ 'Danh sách các bài blog chuyên về lĩnh vực Xây Dựng, giúp bạn có thêm kỹ năng về xây dựng thành công.' ~ (pagination.currentPageNumber > 1 ? ' - Trang ' ~ pagination.currentPageNumber : '') }}" />
     {% if pagination.currentPageNumber == 1 and pagination.pageCount > 1 %}
         <link rel="next" href="{{ baseUrl ~ '/' ~ (pagination.currentPageNumber + 1) }}" />
     {% endif %}
@@ -28,14 +33,13 @@
     {% endif %}
 {% endblock %}
 
-{% block canonical %}
-    <link rel="canonical" href="{{ baseUrl }}"/>
+{% block robots %}
+<meta name="robots" content="follow, noindex" />
 {% endblock %}
 
 {% block body %}
-    {# breadcrumbs #}
     {{ include('news/components/breadcrumbs.html.twig',
-        { type: 'category', title: category.getName(), description: category.getDescription() })
+        { type: 'category', title: user.getName(), description: 'Danh sách các bài blog chuyên về Xây Dựng, giúp bạn có thêm kỹ năng để xây dựng một cách thành công.' })
     }}
     
     <div class="container wrapper-container">
@@ -63,13 +67,5 @@
                 {% endif %}
             </div>
         </div>
-        
-        {{ render(controller(
-            'AppBundle:News:listNewsByCategory', { 'categoryId': 3 }
-        )) }}
-
-        {{ render(controller(
-            'AppBundle:News:listNewsByCategory', { 'categoryId': 4 }
-        )) }}
     </div>
 {% endblock %}

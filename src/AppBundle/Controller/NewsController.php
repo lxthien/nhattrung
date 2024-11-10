@@ -699,8 +699,8 @@ class NewsController extends Controller
                 'label' => 'label.content',
                 'attr' => array('rows' => '7')
             ))
-            ->add('author', TextType::class, array('label' => 'label.author'))
-            ->add('email', EmailType::class, array('label' => 'label.author_email'))
+            ->add('author', TextType::class, array('label' => 'Tên'))
+            ->add('phone', TextType::class, array('label' => 'Số điện thoại'))
             ->add('ip', HiddenType::class)
             ->add('news_id', HiddenType::class)
             ->add('comment_id', HiddenType::class)
@@ -732,7 +732,7 @@ class NewsController extends Controller
             $form = $this->createFormBuilder($comment)
                 ->add('content', TextareaType::class)
                 ->add('author', TextType::class)
-                ->add('email', EmailType::class)
+                ->add('phone', TextType::class)
                 ->add('ip', HiddenType::class)
                 ->add('news_id', HiddenType::class)
                 ->add('comment_id', HiddenType::class)
@@ -746,6 +746,7 @@ class NewsController extends Controller
                 $em->flush();
 
                 if (null !== $comment->getId()) {
+                    /*
                     $message = \Swift_Message::newInstance()
                         ->setSubject($this->get('translator')->trans('comment.email.title', ['%siteName%' => $this->get('settings_manager')->get('siteName')]))
                         ->setFrom(['hotro.xaydungnhatthu@gmail.com' => $this->get('settings_manager')->get('siteName')])
@@ -763,7 +764,7 @@ class NewsController extends Controller
                     ;
 
                     $mailer->send($message);
-    
+                    */
                     return new Response(
                         json_encode(
                             array(
@@ -777,17 +778,18 @@ class NewsController extends Controller
                         json_encode(
                             array(
                                 'status'=>'error',
-                                'message' => '<div class="alert alert-warning" role="alert">'.$this->get('translator')->trans('comment.have_a_problem_on_your_request').'</div>'
+                                'message' => '<div class="alert alert-warning" role="alert">1</div>'
                             )
                         )
                     );
                 }
             } else {
+                $error = $form->getErrors();
                 return new Response(
                     json_encode(
                         array(
                             'status'=>'error',
-                            'message' => '<div class="alert alert-warning" role="alert">'.$this->get('translator')->trans('comment.have_a_problem_on_your_request').'</div>'
+                            'message' => '<div class="alert alert-warning" role="alert">'.$error.'</div>'
                         )
                     )
                 );

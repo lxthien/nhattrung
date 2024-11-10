@@ -141,6 +141,13 @@ class News
     private $viewCounts = 0;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="template", type="string", length=255, nullable=true)
+     */
+    private $template = null;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="categoryPrimary", type="integer")
@@ -385,22 +392,11 @@ class News
         }
     }
 
-    /**
-     * Get images file
-     *
-     * @return string
-     */
     public function getImageFile()
     {
         return $this->imageFile;
     }
 
-    /**
-     * Set images
-     *
-     * @param string $images
-     * @return News
-     */
     public function setImages($images)
     {
         $this->images = $images;
@@ -408,22 +404,11 @@ class News
         return $this;
     }
 
-    /**
-     * Get images
-     *
-     * @return string
-     */
     public function getImages()
     {
         return $this->images;
     }
 
-    /**
-     * Set enable
-     *
-     * @param bool $enable
-     * @return News
-     */
     public function setEnable($enable)
     {
         $this->enable = $enable;
@@ -431,23 +416,11 @@ class News
         return $this;
     }
 
-    /**
-     * Get enable
-     *
-     * @return bool
-     */
     public function getEnable()
     {
         return $this->enable;
     }
 
-    /**
-     * Set postType
-     *
-     * @param string $postType
-     *
-     * @return News
-     */
     public function setPostType($postType)
     {
         $this->postType = $postType;
@@ -455,32 +428,16 @@ class News
         return $this;
     }
 
-    /**
-     * Get postType
-     *
-     * @return string
-     */
     public function getPostType()
     {
         return $this->postType;
     }
 
-    /**
-     * Is Page
-     *
-     * @return boolean
-     */
     public function isPage()
     {
         return ($this->postType == 'page') ? true : false;
     }
 
-    /**
-     * Set pageTitle
-     *
-     * @param string $pageTitle
-     * @return News
-     */
     public function setPageTitle($pageTitle)
     {
         $this->pageTitle = $pageTitle;
@@ -488,22 +445,11 @@ class News
         return $this;
     }
 
-    /**
-     * Get pageTitle
-     *
-     * @return string
-     */
     public function getPageTitle()
     {
         return $this->pageTitle;
     }
 
-    /**
-     * Set pageDescription
-     *
-     * @param string $pageDescription
-     * @return News
-     */
     public function setPageDescription($pageDescription)
     {
         $this->pageDescription = $pageDescription;
@@ -511,22 +457,11 @@ class News
         return $this;
     }
 
-    /**
-     * Get pageDescription
-     *
-     * @return string
-     */
     public function getPageDescription()
     {
         return $this->pageDescription;
     }
 
-    /**
-     * Set pageKeyword
-     *
-     * @param string $pageKeyword
-     * @return News
-     */
     public function setPageKeyword($pageKeyword)
     {
         $this->pageKeyword = $pageKeyword;
@@ -534,22 +469,11 @@ class News
         return $this;
     }
 
-    /**
-     * Get pageKeyword
-     *
-     * @return string
-     */
     public function getPageKeyword()
     {
         return $this->pageKeyword;
     }
 
-    /**
-     * Set viewCounts
-     *
-     * @param \int $viewCounts
-     * @return News
-     */
     public function setViewCounts($viewCounts)
     {
         $this->viewCounts = $viewCounts;
@@ -557,14 +481,21 @@ class News
         return $this;
     }
 
-    /**
-     * Get viewCounts
-     *
-     * @return int
-     */
     public function getViewCounts()
     {
         return $this->viewCounts;
+    }
+
+    public function setTemplate($template)
+    {
+        $this->template = $template;
+
+        return $this;
+    }
+
+    public function getTemplate()
+    {
+        return $this->template;
     }
 
     public function setCategoryPrimary($categoryPrimary)

@@ -5,7 +5,6 @@
 {% block keyword %}{{ post.getPageKeyword() }}{% endblock %}
 
 {% block structuredOpenGraph %}
-    <link rel="amphtml" href="{{ url('amp_show', { slug: post.getUrl() }) }}">
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{{ post.getPageTitle() is not null ? post.getPageTitle() : post.getTitle() }}" />
     <meta property="og:description" content="{{ post.getPageDescription() is not null ? post.getPageDescription() : post.getDescription() }}" />
@@ -22,12 +21,12 @@
 
 {% block body %}
     <div class="wrapper-container-item-detail">
-        <div class="container wrapper-container page-detail">
+        <div class="container wrapper-container page-detail {{ post.getTemplate() == '1_column' ? 'page-1-column' : 'page-2-column' }}">
             <div class="row">
                 {# breadcrumbs #}
                 {{ include('news/components/breadcrumbs.html.twig') }}
 
-                <div class="col-12 col-md-12 col-lg-9 page-detail-container">
+                <div class="col-12 col-md-12 {{ post.getTemplate() != '1_column' ? 'col-lg-9' : 'col-lg-12' }} page-detail-container">
                     <article id="post-{{ post.getId() }}" class="news hentry" itemscope itemtype="http://schema.org/Article">
                         {# Begin google snippet #}
                         <meta itemscope itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage" itemid="{{ absolute_url(path('news_show', {'slug': post.getUrl() })) }}"/>
@@ -65,8 +64,9 @@
                             {{ include('news/components/share.html.twig') }}
                         </div> #}
 
-                        {# Related news #}
+                        {% if post.getTemplate() != '1_column' %}
                         {{ include('news/components/related.html.twig') }}
+                        {% endif %}
                         
                         {# List comments #}
                         {{ include('news/comments/list.html.twig') }}
@@ -76,17 +76,20 @@
                     </article>
                 </div>
 
-                {# Side bar #}
+                {% if post.getTemplate() != '1_column' %}
                 {{ include('layout/sidebar.html.twig') }}
+                {% endif %}
             </div>
 
-            {{ render(controller(
-                'AppBundle:News:listNewsByCategory', { 'categoryId': 3 }
-            )) }}
+            {% if post.getTemplate() != '1_column' %}
+                {{ render(controller(
+                    'AppBundle:News:listNewsByCategory', { 'categoryId': 3 }
+                )) }}
 
-            {{ render(controller(
-                'AppBundle:News:listNewsByCategory', { 'categoryId': 4 }
-            )) }}
+                {{ render(controller(
+                    'AppBundle:News:listNewsByCategory', { 'categoryId': 4 }
+                )) }}
+            {% endif %}
         </div>
     </div>
 {% endblock %}
