@@ -162,6 +162,13 @@
                 table, th, td {
                     border: 1px solid #ccc;
                 }
+
+                .table-of-contents {
+                    .table-of-contents-item {
+                        list-style-type: disc;
+                        display: list-item;
+                    }
+                }
             }
         }
     }

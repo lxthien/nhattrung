@@ -784,12 +784,11 @@ class NewsController extends Controller
                     );
                 }
             } else {
-                $error = $form->getErrors();
                 return new Response(
                     json_encode(
                         array(
                             'status'=>'error',
-                            'message' => '<div class="alert alert-warning" role="alert">'.$error.'</div>'
+                            'message' => '<div class="alert alert-warning" role="alert">'.$this->get('translator')->trans('comment.have_a_problem_on_your_request').'</div>'
                         )
                     )
                 );
